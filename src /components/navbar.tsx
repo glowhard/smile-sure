@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,39 +28,68 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
+    <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'
       }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 lg:py-6">
           {/* Logo */}
-          <div
+          <motion.div
             className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
               isScrolled ? 'text-gray-800' : 'text-white'
             }`}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
           >
             SmileSure
-          </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            <div className="flex items-center space-x-6 px-8 py-3 rounded-full bg-white/10 backdrop-blur-md shadow-lg border border-white/20">
+            <motion.div 
+              className={`flex items-center space-x-6 px-8 py-3 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 ${
+                isScrolled 
+                  ? 'bg-gray-50/80 border border-gray-200/50' 
+                  : 'bg-white/10 border border-white/20'
+              }`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               {navLinks.map((link, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={link.href}
-                  className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 relative group"
+                  className={`text-sm font-medium transition-colors duration-200 relative group ${
+                    isScrolled ? 'text-gray-800 hover:text-blue-600' : 'text-white hover:text-blue-300'
+                  }`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-200 group-hover:w-full"></span>
-                </a>
+                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-200 group-hover:w-full ${
+                    isScrolled ? 'bg-blue-600' : 'bg-blue-300'
+                  }`}></span>
+                </motion.a>
               ))}
 
               {/* Dropdown */}
-              <div className="relative group cursor-pointer">
-                <span className="text-white text-sm font-medium hover:text-blue-300 transition-colors duration-200 flex items-center">
+              <motion.div 
+                className="relative group cursor-pointer"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.8 }}
+              >
+                <span className={`text-sm font-medium transition-colors duration-200 flex items-center ${
+                  isScrolled ? 'text-gray-800 hover:text-blue-600' : 'text-white hover:text-blue-300'
+                }`}>
                   ALL PAGES
                   <svg
                     className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"
@@ -87,16 +117,28 @@ const Navbar = () => {
                     Page 2
                   </a>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
 
           {/* Desktop CTA Button */}
-          <div className="hidden lg:block">
-            <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+          <motion.div 
+            className="hidden lg:block"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <motion.button 
+              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 10px 30px rgba(59, 130, 246, 0.3)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
               Book Appointment
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
@@ -183,7 +225,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
