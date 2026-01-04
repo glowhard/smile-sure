@@ -53,8 +53,8 @@ const AboutClinic = () => {
   };
 
   return (
-    <section className="py-32 bg-white overflow-hidden">
-      <div className="container mx-auto px-6 flex flex-col lg:flex-row w-full gap-10 lg:gap-12">
+    <section className="py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row w-full gap-8 sm:gap-10 lg:gap-12">
         {/* Left Content */}
         <motion.div
           className="flex flex-col justify-center w-full lg:w-1/2 space-y-6 lg:space-y-8"
@@ -65,7 +65,7 @@ const AboutClinic = () => {
         >
           {/* Section Label */}
           <motion.p
-            className="text-primary font-black tracking-[0.3em] text-xs uppercase"
+            className="text-primary font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs uppercase"
             variants={itemVariants}
           >
             About Clinic
@@ -73,7 +73,7 @@ const AboutClinic = () => {
 
           {/* Main Heading */}
           <motion.h2
-            className="text-4xl md:text-5xl xl:text-6xl font-bold text-slate-900 tracking-tighter leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 tracking-tighter leading-[1.1] sm:leading-tight"
             variants={itemVariants}
           >
             Dental is a modern practice dedicated to exceptional care in a welcoming environment.
@@ -81,31 +81,31 @@ const AboutClinic = () => {
 
           {/* Subtext */}
           <motion.p
-            className="text-base md:text-lg xl:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl"
+            className="text-sm sm:text-base md:text-lg xl:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl"
             variants={itemVariants}
           >
             Our clinic is equipped with the latest technology and staffed by highly trained
             professionals who prioritize your comfort and well-being.
           </motion.p>
 
-          {/* Features */}
+        {/* Features */}
+        <motion.div
+          className="space-y-4 sm:space-y-6 lg:space-y-8"
+          variants={containerVariants}
+        >
+          {/* Feature 1 */}
           <motion.div
-            className="space-y-6 lg:space-y-8"
-            variants={containerVariants}
+            className="flex items-start gap-3 sm:gap-4 lg:gap-6 group p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 hover:bg-secondary/50"
+            variants={featureVariants}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
           >
-            {/* Feature 1 */}
-            <motion.div
-              className="flex items-start gap-4 lg:gap-6 group rounded-2xl transition-all duration-300 hover:bg-secondary/50"
-              variants={featureVariants}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.3 }}
-            >
 
-              <div className="flex-1">
-                <h3 className="text-lg md:text-xl xl:text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors duration-300">
-                  Patient-Centered Care
-                </h3>
-                <p className="text-slate-500 font-medium leading-relaxed text-sm md:text-base xl:text-lg">
+            <div className="flex-1">
+              <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
+                Patient-Centered Care
+              </h3>
+              <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
                   We prioritize the well-being and comfort of our patients, offering personalized
                   treatments and a supportive environment to make every visit a positive experience.
                 </p>
@@ -120,11 +120,11 @@ const AboutClinic = () => {
               transition={{ duration: 0.3 }}
             >
 
-              <div className="flex-1">
-                <h3 className="text-lg md:text-xl xl:text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors duration-300">
-                  Advanced Treatments
-                </h3>
-                <p className="text-slate-500 font-medium leading-relaxed text-sm md:text-base xl:text-lg">
+            <div className="flex-1">
+              <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
+                Advanced Treatments
+              </h3>
+              <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
                   We are dedicated to providing the highest standard of dental care using advanced
                   techniques and state-of-the-art technology, ensuring optimal results for our patients.
                 </p>
@@ -149,7 +149,7 @@ const AboutClinic = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.div
-            className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
+            className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
             whileHover={{
               scale: 1.02,
               boxShadow: '0_30px_80px_-20px_rgba(0,0,0,0.25)',

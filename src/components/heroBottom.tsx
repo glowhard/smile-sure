@@ -47,11 +47,7 @@ const HeroBottom = () => {
 
   return (
     <motion.section
-      className="container mx-auto flex flex-col lg:flex-row gap-3 lg:gap-10 xl:gap-[20px] px-4 sm:px-6 lg:px-0 transform translate-y-[-50px]"
-      style={{
-        minHeight: '440px',
-        height: '440px'
-      }}
+      className="container mx-auto flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-10 xl:gap-[20px] px-4 sm:px-6 lg:px-0 transform translate-y-[-30px] sm:translate-y-[-40px] md:translate-y-[-50px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -62,18 +58,18 @@ const HeroBottom = () => {
         className="w-full lg:w-2/3 flex flex-col justify-stretch"
         variants={itemVariants}
       >
-        <section className='h-[70px] min-h-[70px] bg-transparent'></section>
+        <section className='h-[40px] sm:h-[50px] md:h-[70px] min-h-[40px] sm:min-h-[50px] md:min-h-[70px] bg-transparent'></section>
         <section
           aria-labelledby="services-title"
-          className="rounded-3xl bg-secondary p-6 sm:p-8 md:p-10 flex-1"
+          className="rounded-2xl sm:rounded-3xl bg-secondary p-4 sm:p-6 md:p-8 lg:p-10 flex-1"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-10 gap-x-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-6 sm:gap-y-8 md:gap-y-10 gap-x-6 md:gap-x-12">
 
             {/* LEFT – Headline */}
             <div className="lg:col-span-2">
               <h2
                 id="services-title"
-                className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight tracking-tight text-slate-900 max-w-md"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight tracking-tight text-slate-900 max-w-md"
               >
                 We provide expert dental care tailored to your needs.
               </h2>
@@ -81,8 +77,8 @@ const HeroBottom = () => {
 
             {/* RIGHT – Why Dental */}
             <div className="lg:col-span-2">
-              <div className="flex flex-col items-start justify-start gap-4 mb-4">
-                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
+              <div className="flex flex-col items-start justify-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900">
                   Why Dental?
                 </h3>
 
@@ -108,11 +104,11 @@ const HeroBottom = () => {
 
             {/* LEFT – Pills */}
             <div className="lg:col-span-2">
-              <ul className="flex flex-wrap gap-3 max-w-md">
+              <ul className="flex flex-wrap gap-2 sm:gap-3 max-w-md">
                 {services.map((s) => (
                   <li key={s.label}>
                     <motion.span
-                      className="inline-flex items-center rounded-full border-2 border-primary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
+                      className="inline-flex items-center rounded-full border-2 border-primary px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
                       whileHover={{ y: -2, scale: 1.05 }}
                       transition={{ duration: 0.2 }}
                     >
@@ -137,11 +133,11 @@ const HeroBottom = () => {
 
       {/* Right Section - Services Card */}
       <motion.div
-        className="w-full lg:w-1/3 flex flex-col min-h-full h-full relative"
+        className="w-full lg:w-1/3 flex flex-col min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-full lg:h-full relative"
         variants={itemVariants}
       >
         <motion.div
-          className="group w-full h-full overflow-hidden rounded-[28px] flex flex-col relative h-full shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
+          className="group w-full h-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-full overflow-hidden rounded-2xl sm:rounded-[28px] flex flex-col relative shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
           whileHover={{
             scale: 1.02,
             y: -8,
@@ -168,7 +164,7 @@ const HeroBottom = () => {
           </motion.div>
 
           {/* Content Container */}
-          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+          <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8">
             {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -176,27 +172,27 @@ const HeroBottom = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
             >
               <motion.h3
-                className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg"
+                className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                 whileHover={{ scale: 1.02 }}
               >
                 {title}
               </motion.h3>
               <motion.div
-                className="w-12 h-1 bg-[#a67c52] rounded-full mt-2"
+                className="w-8 sm:w-12 h-0.5 sm:h-1 bg-[#a67c52] rounded-full mt-2"
                 initial={{ width: 0 }}
-                whileInView={{ width: 48 }}
+                whileInView={{ width: 32 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               />
             </motion.div>
 
             {/* Body copy */}
             <motion.div
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-4 sm:gap-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              <p className="text-white/95 text-base sm:text-lg leading-relaxed font-medium">
+              <p className="text-white/95 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
                 {copy}
               </p>
 
@@ -227,13 +223,13 @@ const HeroBottom = () => {
             </motion.div>
           </div>
 
-          <div className="absolute right-0 bottom-0 w-20 h-20 bg-white rounded-tl-[32px] overflow-visible">
+          <div className="absolute right-0 bottom-0 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-tl-2xl sm:rounded-tl-[32px] overflow-visible">
 
             {/* Left cut */}
-            <div className="absolute -left-8 bottom-0 w-8 h-8 bg-transparent rounded-br-[32px] shadow-[16px_16px_0_16px_white]" />
+            <div className="absolute -left-6 sm:-left-8 bottom-0 w-6 h-6 sm:w-8 sm:h-8 bg-transparent rounded-br-2xl sm:rounded-br-[32px] shadow-[12px_12px_0_12px_white] sm:shadow-[16px_16px_0_16px_white]" />
 
             {/* Top cut */}
-            <div className="absolute right-0 -top-8 w-8 h-8 bg-transparent rounded-br-[32px] shadow-[16px_16px_0_16px_white]" />
+            <div className="absolute right-0 -top-6 sm:-top-8 w-6 h-6 sm:w-8 sm:h-8 bg-transparent rounded-br-2xl sm:rounded-br-[32px] shadow-[12px_12px_0_12px_white] sm:shadow-[16px_16px_0_16px_white]" />
 
             {/* Arrow circle */}
             <motion.div
@@ -245,7 +241,7 @@ const HeroBottom = () => {
               viewport={{ once: true }}
             >
               <motion.div
-                className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white text-xl shadow-md cursor-pointer"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-white text-lg sm:text-xl shadow-md cursor-pointer"
                 variants={{
                   initial: { scale: 1, backgroundColor: "#6e4e24", color: "#fff" },
                   hover: {

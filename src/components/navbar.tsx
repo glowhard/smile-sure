@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import AppButton from './AppButton';
+import { Menu, X } from 'lucide-react';
 
 
 const Navbar: React.FC = () => {
@@ -58,11 +59,11 @@ const Navbar: React.FC = () => {
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group cursor-pointer">
             <Image
-              src={!isScrolled ? '/mainLogo-light.png' : '/mainLogo-dark.png'}
+              src={!isScrolled && !isMenuOpen ? '/mainLogo-light.png' : '/mainLogo-dark.png'}
               alt="Company Logo"
               width={100}
               height={100}
-              className={`w-auto transition-all duration-200 md:duration-250 ${isScrolled ? 'h-22' : 'h-32'}`}
+              className={`w-auto transition-all duration-200 md:duration-250 ${isScrolled ? 'h-16 sm:h-20 md:h-22' : 'h-20 sm:h-24 md:h-28 lg:h-32'}`}
               style={{ transitionDuration: '0.25s' }}
             />
           </Link>
@@ -122,19 +123,21 @@ const Navbar: React.FC = () => {
 
           {/* Right Section CTA */}
           <div className="flex items-center gap-4">
-            <AppButton title='Schedule a visit' onTap={() => {
-              window.location.href = "/#book-visit"
-            }} />
+            <div className="hidden lg:block">
+              <AppButton title='Schedule a visit' onTap={() => {
+                window.location.href = "/#book-visit"
+              }} />
+            </div>
 
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled || isMenuOpen ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
                 }`}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
-              </svg>
+              {
+                isMenuOpen ? <X /> : <Menu />
+              }
             </button>
           </div>
         </div>

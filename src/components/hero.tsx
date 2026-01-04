@@ -18,7 +18,7 @@ const fadeUpVariants: any = {
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-start items-center relative h-[500px] md:h-[600px] lg:h-[700px] px-4 md:px-8 lg:px-12 overflow-hidden">
+    <div className="flex flex-col lg:flex-row justify-end items-center relative min-h-[500px] sm:min-h-[550px] md:h-[600px] lg:h-[700px] px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden pt-20 sm:pt-24">
       {/* Video Background with Overlay */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full overflow-hidden"
@@ -40,17 +40,17 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
-        className='container mx-auto flex flex-col justify-end h-full'
+        className='container mx-auto flex flex-col justify-end h-full w-full'
       >
         <motion.div
-          className='flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-[70px] relative z-10 w-2/3 pb-20'
+          className='flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 lg:gap-[70px] relative z-10 w-full lg:w-2/3 pb-12 sm:pb-16 md:pb-20'
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
         >
           {/* Main Title */}
           <motion.div
-            className="flex flex-col text-center lg:text-left text-4xl md:text-6xl lg:text-8xl w-full text-white font-bold leading-tight tracking-[-5px]"
+            className="flex flex-col text-center lg:text-left text-5xl lg:text-6xl xl:text-8xl w-full text-white font-bold leading-[1.1] sm:leading-tight tracking-[-2px] sm:tracking-[-3px] md:tracking-[-5px]"
             variants={fadeUpVariants}
           >
             <span>
@@ -63,16 +63,16 @@ const Hero = () => {
 
           {/* Content Section */}
           <motion.div
-            className="flex flex-col w-full gap-8 lg:gap-[40px] text-white text-center lg:text-left justify-center"
+            className="flex flex-col w-full gap-6 sm:gap-8 lg:gap-[40px] text-white text-center lg:text-left justify-center"
             variants={fadeUpVariants}
           >
             <h2
-              className="text-xl md:text-xl lg:text-2xl font-light text-white"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-white leading-relaxed"
             >
               Our team is committed to delivering top-quality, compassionate treatments in a comfortable environment.
             </h2>
 
-            <div>
+            <div className="flex justify-center lg:justify-start">
               <AppButton title='Book Now' onTap={() => {
                 window.location.href = "/#book-visit"
               }} />

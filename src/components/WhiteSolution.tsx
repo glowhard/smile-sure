@@ -62,8 +62,8 @@ const features = [
 ];
 
 const WhiteSolution = () => (
-  <section className="py-32 bg-white overflow-hidden">
-    <div className="max-w-[1440px] mx-auto px-6">
+  <section className="py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
       {/* Animate everything as one with a single fade up */}
       <motion.div
         variants={fadeUpVariant}
@@ -72,20 +72,20 @@ const WhiteSolution = () => (
         viewport={{ once: true, amount: 0.2 }}
       >
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-          <p className="text-primary font-black tracking-[0.3em] text-[11px] uppercase">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-6">
+          <p className="text-primary font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] uppercase">
             Achieve a Brighter, Whiter Smile
           </p>
-          <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter text-slate-900 leading-tight">
-            We offer effective teeth <br /> whitening solutions.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-slate-900 leading-[1.1] sm:leading-tight px-4">
+            We offer effective teeth <br className="hidden sm:block" /> whitening solutions.
           </h2>
-          <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto px-4">
             Whether you're looking to enhance your smile for a special occasion or simply want to improve your everyday appearance.
           </p>
         </div>
 
         {/* Features Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16 md:mb-24">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -95,15 +95,15 @@ const WhiteSolution = () => (
               viewport={{ once: true, amount: 0.2 }}
               whileHover={{ y: -8, scale: 1.05 }}
               transition={{ duration: 0.4 }}
-              className="text-center space-y-6 flex flex-col items-center p-6 rounded-3xl transition-all duration-300 hover:bg-secondary/30"
+              className="text-center space-y-4 sm:space-y-6 flex flex-col items-center p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-all duration-300 hover:bg-secondary/30"
             >
-              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
                 {feature.title}
               </h3>
-              <p className="text-slate-500 font-medium leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
@@ -111,20 +111,20 @@ const WhiteSolution = () => (
         </div>
 
         {/* Action Button */}
-        <div className="flex justify-center mb-24">
+        <div className="flex justify-center mb-12 sm:mb-16 md:mb-24 px-4">
           <AppButton title='Make Your Teeth Whiter' />
         </div>
 
         {/* Before/After Slider */}
         <motion.div 
-          className="relative w-full max-w-2xl mx-auto rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group"
+          className="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl md:rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group px-4"
           whileHover={{ y: -8, scale: 1.02 }}
           transition={{ duration: 0.4 }}
         >
           <ReactBeforeSliderComponent
             firstImage={FIRST_IMAGE}
             secondImage={SECOND_IMAGE}
-            className="rounded-[48px] w-full h-auto object-contain"
+            className="rounded-2xl sm:rounded-3xl md:rounded-[48px] w-full h-auto object-contain"
           />
         </motion.div>
       </motion.div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface PageHeaderProps {
@@ -23,12 +23,22 @@ const fadeUpVariant: any = {
 
 const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderProps) => {
   const { scrollY } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Parallax strength (lower = more premium)
-  const y = useTransform(scrollY, [0, 600], [0, 200]);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Parallax strength - reduced on mobile for better performance
+  const y = useTransform(scrollY, [0, 600], [0, isMobile ? 100 : 200]);
 
   return (
-    <section className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden pt-24 md:pt-28">
+    <section className="relative min-h-[400px] sm:min-h-[450px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[700px] flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28 lg:pt-32">
       {/* Background Image with Overlay */}
       {backgroundImage ? (
         <>
@@ -39,13 +49,12 @@ const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderPr
             <img
               src={backgroundImage}
               alt=""
-              className="w-full h-full object-cover scale-[1.15]"
+              className="w-full h-full object-cover scale-[1.1] sm:scale-[1.12] md:scale-[1.15]"
               draggable={false}
             />
           </motion.div>
 
-          {/* <div className="absolute inset-0 bg-black/50" /> */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60 sm:from-black/60 sm:via-black/40 sm:to-black/60" />
         </>
       ) : (
         <>
@@ -57,28 +66,28 @@ const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderPr
       )}
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-6 relative z-10 w-full">
         <motion.div
-          className="text-center max-w-4xl mx-auto space-y-6 lg:space-y-8"
+          className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8"
           variants={fadeUpVariant}
           initial="hidden"
           animate="visible"
         >
           <motion.p
-            className="text-white/90 font-black tracking-[0.3em] text-[11px] uppercase"
+            className="text-white/90 font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] uppercase px-4"
             variants={fadeUpVariant}
           >
             {label}
           </motion.p>
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tighter text-white leading-[1.1] sm:leading-tight px-4 sm:px-6"
             variants={fadeUpVariant}
           >
             {title}
           </motion.h1>
           {description && (
             <motion.p
-              className="text-white/80 font-medium text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto"
+              className="text-white/80 font-medium text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto px-4 sm:px-6 md:px-8"
               variants={fadeUpVariant}
             >
               {description}
@@ -88,7 +97,7 @@ const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderPr
       </div>
 
       {/* Simple white divider */}
-      <div className="absolute bottom-0 w-24 h-1 rounded-full mx-auto mt-10 mb-2 bg-white shadow-lg shadow-white/50" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 md:w-24 h-0.5 sm:h-1 rounded-full bg-white shadow-lg shadow-white/50 mb-4 sm:mb-6 md:mb-8" />
     </section>
   );
 };

@@ -60,33 +60,33 @@ const BookVisit2 = () => {
   };
 
   return (
-    <section className="py-32 bg-white overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* Left Column - Features */}
-          <motion.div className="flex flex-col justify-between h-full" variants={itemVariants}>
+          <motion.div className="flex flex-col justify-between h-full order-3 lg:order-1" variants={itemVariants}>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-primary font-black tracking-[0.3em] text-[11px] uppercase"
+              className="text-primary font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] uppercase mb-4 sm:mb-6"
             >
               Book a Visit
             </motion.div>
 
             <motion.div
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-3 sm:gap-4"
               variants={containerVariants}
             >
               {features.map((item, i) => (
                 <motion.button
                   key={i}
-                  className="px-4 py-2 border-2 border-[#362212] rounded-full text-[#362212] text-sm md:text-base font-semibold hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 text-left group relative overflow-hidden"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 border-2 border-[#362212] rounded-full text-[#362212] text-xs sm:text-sm md:text-base font-semibold hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 text-left group relative overflow-hidden"
                   variants={featureVariants}
                   whileHover={{ y: -2, scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -108,7 +108,7 @@ const BookVisit2 = () => {
             variants={imageVariants}
           >
             <motion.div
-              className="relative"
+              className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-none"
               whileHover={{
                 scale: 1.05,
                 y: -8,
@@ -118,15 +118,15 @@ const BookVisit2 = () => {
               <img
                 src="/assets/doctor.jpeg"
                 alt="Professional Dentist"
-                className="rounded-3xl h-full w-auto object-cover shadow-2xl"
+                className="rounded-2xl sm:rounded-3xl w-full h-auto max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-none lg:h-full object-cover shadow-2xl"
               />
 
               {/* Decorative frame */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
               {/* Floating badge */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-xl border border-gray-100"
+                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 sm:p-3 md:p-4 shadow-xl border border-gray-100"
                 initial={{ opacity: 0, scale: 0, rotate: -180 }}
                 whileInView={{
                   opacity: 1,
@@ -143,7 +143,7 @@ const BookVisit2 = () => {
                   ease: "easeInOut"
                 }}
               >
-                <svg className="w-6 h-6 text-[#362212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#362212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </motion.div>
@@ -151,10 +151,10 @@ const BookVisit2 = () => {
           </motion.div>
 
           {/* Right Column - Content */}
-          <motion.div className="order-3 h-full flex flex-col items-start justify-end" variants={itemVariants}>
+          <motion.div className="order-2 lg:order-3 h-full flex flex-col items-start justify-start lg:justify-end" variants={itemVariants}>
 
             <motion.div
-              className="inline-flex items-center justify-center rounded-full bg-primary w-[62px] h-[62px] mb-6"
+              className="inline-flex items-center justify-center rounded-full bg-primary w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] md:w-[62px] md:h-[62px] mb-4 sm:mb-6"
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               whileInView={{
                 opacity: 1,
@@ -171,18 +171,18 @@ const BookVisit2 = () => {
                 ease: "easeInOut"
               }}
             >
-              <PhoneOutgoing size={32} color="#fff" />
+              <PhoneOutgoing size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8" color="#fff" />
             </motion.div>
 
             <motion.h2
-              className="text-3xl lg:text-5xl font-bold text-slate-900 tracking-tighter mb-6 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tighter mb-4 sm:mb-6 leading-tight"
               variants={itemVariants}
             >
               Schedule your visit with us today!
             </motion.h2>
 
             <motion.p
-              className="text-slate-500 mb-8 text-lg lg:text-xl font-medium leading-relaxed"
+              className="text-slate-500 mb-6 sm:mb-8 text-base sm:text-lg lg:text-xl font-medium leading-relaxed"
               variants={itemVariants}
             >
               Our dedicated team at Dental is here to provide you with expert

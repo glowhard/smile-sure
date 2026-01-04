@@ -85,18 +85,18 @@ const OurServices = () => {
   ];
 
   return (
-    <section className="py-32 bg-secondary relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-16 sm:py-24 md:py-32 bg-secondary relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-12">
-          <div className="max-w-3xl space-y-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 sm:mb-16 md:mb-20 lg:mb-24 gap-8 sm:gap-12">
+          <div className="max-w-3xl space-y-4 sm:space-y-6">
             <motion.p
               variants={fadeUpVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="text-primary font-black tracking-[0.3em] text-[11px] uppercase"
+              className="text-primary font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] uppercase"
             >
               Our Services
             </motion.p>
@@ -105,9 +105,9 @@ const OurServices = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="text-5xl lg:text-7xl font-bold tracking-tighter text-slate-900 leading-[0.95]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-slate-900 leading-[1.05] sm:leading-[0.95]"
             >
-              We are committed to providing <br />
+              We are committed to providing <br className="hidden sm:block" />
               a range of dental services.
             </motion.h2>
           </div>
@@ -119,7 +119,7 @@ const OurServices = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {services.map((service, idx) => (
             <motion.div
@@ -127,18 +127,20 @@ const OurServices = () => {
               variants={fadeUpVariant}
               whileHover={{ y: -12, scale: 1.02 }}
               transition={{ duration: 0.4 }}
-              className="group bg-white p-12 rounded-[48px] border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.03)] flex flex-col items-start h-full transition-all duration-500 hover:shadow-[0_48px_80px_-24px_rgba(0,0,0,0.12)] hover:border-primary/20"
+              className="group bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-3xl sm:rounded-[40px] md:rounded-[48px] border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.03)] flex flex-col items-start h-full transition-all duration-500 hover:shadow-[0_48px_80px_-24px_rgba(0,0,0,0.12)] hover:border-primary/20"
             >
-              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-10 transition-colors ${service.isFeatured ? 'bg-primary text-white' : 'bg-slate-50 text-primary group-hover:bg-primary group-hover:text-white'
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-6 sm:mb-8 md:mb-10 transition-colors ${service.isFeatured ? 'bg-primary text-white' : 'bg-slate-50 text-primary group-hover:bg-primary group-hover:text-white'
                 }`}>
-                {service.icon}
+                <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  {service.icon}
+                </div>
               </div>
 
-              <h3 className="text-3xl font-bold text-slate-900 tracking-tight mb-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 tracking-tight mb-4 sm:mb-6">
                 {service.title}
               </h3>
 
-              <p className="text-slate-500 font-medium leading-relaxed mb-12 flex-grow">
+              <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed mb-6 sm:mb-8 md:mb-12 flex-grow">
                 {service.description}
               </p>
 
