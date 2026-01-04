@@ -189,7 +189,9 @@ const BookVisit2 = () => {
               dental care in a comfortable and welcoming environment.
             </motion.p>
 
-            <AppButton title="Schedule an Appointment" />
+            <AppButton title="Schedule an Appointment" onTap={() => {
+              window.location.href = "/#book-visit"
+            }} />
           </motion.div>
         </motion.div>
       </div>
