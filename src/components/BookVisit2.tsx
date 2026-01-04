@@ -2,6 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import AppButton from "./AppButton";
+import { PhoneOutgoing } from "lucide-react";
 
 const features = [
   "Comprehensive Services",
@@ -12,123 +14,150 @@ const features = [
 ];
 
 const BookVisit2 = () => {
+  // Consistent fade-up animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.7
       },
     },
   };
 
   const featureVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.4,
-        ease: 'easeOut',
+        duration: 0.6
       },
     },
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      scale: 1,
+      y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut',
+        duration: 0.8
       },
     },
   };
 
   return (
-    <section className="py-16 lg:py-20 px-4 sm:px-6 relative overflow-hidden">
-
-
-      <motion.div 
-        className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {/* Left Column - Features */}
-        <motion.div className="order-2 lg:order-1" variants={itemVariants}>
-          <motion.p 
-            className="text-[#362212] font-semibold uppercase mb-8 text-sm md:text-base tracking-wider"
-            variants={itemVariants}
-          >
-            Book a Visit
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-col gap-4"
-            variants={containerVariants}
-          >
-            {features.map((item, i) => (
-              <motion.button
-                key={i}
-                className="px-6 py-4 border-2 border-[#362212] rounded-full text-[#362212] text-sm md:text-base font-semibold hover:bg-indigo-50 hover:border-indigo-700 hover:text-indigo-700 transition-all duration-300 text-left group relative overflow-hidden"
-                variants={featureVariants}
-
-              >
-                {/* Background animation on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-
-                <span className="relative z-10 group-hover:translate-x-4 transition-transform duration-300">
-                  {item}
-                </span>
-              </motion.button>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Middle Column - Doctor Image */}
-        <motion.div 
-          className="flex justify-center order-1 lg:order-2" 
-          variants={imageVariants}
+    <section className="py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.div
-            className="relative"
-            whileHover={{ 
-              scale: 1.05,
-              transition: { duration: 0.3 }
-            }}
-          >
-            <img
-              src="https://framerusercontent.com/images/Tk5H6Gua9njSZMCM2LwGgGGlFu4.jpg"
-              alt="Professional Dentist"
-              className="rounded-3xl w-full max-w-[350px] h-[400px] md:h-[450px] object-cover shadow-2xl"
-            />
-            
-            {/* Decorative frame */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-            
-            {/* Floating badge */}
+          {/* Left Column - Features */}
+          <motion.div className="flex flex-col justify-between h-full" variants={itemVariants}>
             <motion.div
-              className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-xl border border-gray-100"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-primary font-black tracking-[0.3em] text-[11px] uppercase"
+            >
+              Book a Visit
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col gap-4"
+              variants={containerVariants}
+            >
+              {features.map((item, i) => (
+                <motion.button
+                  key={i}
+                  className="px-4 py-2 border-2 border-[#362212] rounded-full text-[#362212] text-sm md:text-base font-semibold hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 text-left group relative overflow-hidden"
+                  variants={featureVariants}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Background animation on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+
+                  <span className="relative z-10">
+                    {item}
+                  </span>
+                </motion.button>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Middle Column - Doctor Image */}
+          <motion.div
+            className="flex justify-center order-1 lg:order-2"
+            variants={imageVariants}
+          >
+            <motion.div
+              className="relative"
+              whileHover={{
+                scale: 1.05,
+                y: -8,
+                transition: { duration: 0.4 }
+              }}
+            >
+              <img
+                src="/assets/doctor.jpeg"
+                alt="Professional Dentist"
+                className="rounded-3xl h-full w-auto object-cover shadow-2xl"
+              />
+
+              {/* Decorative frame */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+              {/* Floating badge */}
+              <motion.div
+                className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-xl border border-gray-100"
+                initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  rotate: 0,
+                  transition: { delay: 0.5, duration: 0.6, ease: 'backOut' }
+                }}
+                animate={{
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <svg className="w-6 h-6 text-[#362212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Content */}
+          <motion.div className="order-3 h-full flex flex-col items-start justify-end" variants={itemVariants}>
+
+            <motion.div
+              className="inline-flex items-center justify-center rounded-full bg-primary w-[62px] h-[62px] mb-6"
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
-              whileInView={{ 
-                opacity: 1, 
+              whileInView={{
+                opacity: 1,
                 scale: 1,
                 rotate: 0,
                 transition: { delay: 0.5, duration: 0.6, ease: 'backOut' }
@@ -142,59 +171,28 @@ const BookVisit2 = () => {
                 ease: "easeInOut"
               }}
             >
-              <svg className="w-6 h-6 text-[#362212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <PhoneOutgoing size={32} color="#fff" />
             </motion.div>
+
+            <motion.h2
+              className="text-3xl lg:text-5xl font-bold text-slate-900 tracking-tighter mb-6 leading-tight"
+              variants={itemVariants}
+            >
+              Schedule your visit with us today!
+            </motion.h2>
+
+            <motion.p
+              className="text-slate-500 mb-8 text-lg lg:text-xl font-medium leading-relaxed"
+              variants={itemVariants}
+            >
+              Our dedicated team at Dental is here to provide you with expert
+              dental care in a comfortable and welcoming environment.
+            </motion.p>
+
+            <AppButton title="Schedule an Appointment" />
           </motion.div>
         </motion.div>
-
-        {/* Right Column - Content */}
-        <motion.div className="order-3" variants={itemVariants}>
-
-
-          <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight"
-            variants={itemVariants}
-          >
-            Schedule your visit with us today!
-          </motion.h2>
-          
-          <motion.p 
-            className="text-gray-600 mb-8 text-base md:text-lg leading-relaxed"
-            variants={itemVariants}
-          >
-            Our dedicated team at Dental is here to provide you with expert
-            dental care in a comfortable and welcoming environment.
-          </motion.p>
-
-          <motion.button 
-className="bg-gradient-to-r from-[#5c3d2e] to-[#a67c52] text-white px-8 py-4 md:px-10 md:py-5 rounded-full font-semibold hover:from-[#704b36] hover:to-[#c19a6b] transition-all duration-300 shadow-xl hover:shadow-2xl text-base md:text-lg group"
-            variants={itemVariants}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: '0 20px 40px rgba(99, 102, 241, 0.3)'
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="flex items-center gap-3">
-              Schedule an Appointment
-              <motion.svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                whileHover={{ x: 2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </motion.svg>
-            </span>
-          </motion.button>
-        </motion.div>
-      </motion.div>
-
-
+      </div>
     </section>
   );
 };

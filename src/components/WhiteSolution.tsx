@@ -1,167 +1,136 @@
+
 'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
+import ReactBeforeSliderComponent from 'react-before-after-slider-component';
+import 'react-before-after-slider-component/dist/build.css';
+import AppButton from './AppButton';
 
-const solutions = [
+// Consistent fade-up animation variant
+const FADE_DURATION = 0.7;
+
+const fadeUpVariant: any = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: FADE_DURATION
+    }
+  }
+};
+
+const FIRST_IMAGE = {
+  imageUrl: '/images/teeth-white.jpg',
+  label: 'After',
+};
+
+const SECOND_IMAGE = {
+  imageUrl: '/images/teeth-dark.png',
+  label: 'Before',
+};
+
+const features = [
   {
-    icon: "https://framerusercontent.com/images/IcJUnaGk8VeLcwULCEg3wzQlhI.svg",
-    title: "In-Office Professional Whitening",
-    description:
-      "Our whitening treatment combines advanced technology, expert techniques, and quality products to deliver results.",
+    title: 'In-Office Professional Whitening',
+    description: 'Our whitening treatment combines advanced technology, expert techniques, and quality products to deliver results.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    )
   },
   {
-    icon: "https://framerusercontent.com/images/MPmtH9mXcmlTUsoivBgF7sorYA.svg",
-    title: "Take-Home Whitening Kits",
-    description:
-      "With custom trays and professional-grade gel, you can whiten your smile comfortably at your own pace from home.",
+    title: 'Take-Home Whitening Kits',
+    description: 'With custom trays and professional-grade gel, you can whiten your smile comfortably at your own pace from home.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    )
   },
   {
-    icon: "https://framerusercontent.com/images/Uad0icXI22m7urNiziHHdiV22ow.svg",
-    title: "Stain Removal and Polishing",
-    description:
-      "Our cleaning and polishing treatments eliminate stains from food, drinks, and smoking, bringing back your teeth's natural shine.",
-  },
+    title: 'Stain Removal and Polishing',
+    description: 'Our cleaning and polishing treatments eliminate stains from food, drinks, and smoking, bringing back your teeth\'s natural shine.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
+      </svg>
+    )
+  }
 ];
 
-const WhiteSolution = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  return (
-    <section className="w-full  flex flex-col items-center justify-center py-16 lg:py-20 px-4 sm:px-6 text-center relative overflow-hidden">
-      {/* Background decorative elements */}
-
+const WhiteSolution = () => (
+  <section className="py-32 bg-white overflow-hidden">
+    <div className="max-w-[1440px] mx-auto px-6">
+      {/* Animate everything as one with a single fade up */}
       <motion.div
-        className="max-w-7xl mx-auto relative z-10"
-        variants={containerVariants}
+        variants={fadeUpVariant}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
         {/* Header Section */}
-        <motion.div className="mb-16" variants={itemVariants}>
-          <motion.p 
-            className="text-[#5c3d2e] font-semibold uppercase tracking-wide mb-4 text-sm md:text-base"
-            variants={itemVariants}
-          >
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+          <p className="text-primary font-black tracking-[0.3em] text-[11px] uppercase">
             Achieve a Brighter, Whiter Smile
-          </motion.p>
+          </p>
+          <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter text-slate-900 leading-tight">
+            We offer effective teeth <br /> whitening solutions.
+          </h2>
+          <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
+            Whether you're looking to enhance your smile for a special occasion or simply want to improve your everyday appearance.
+          </p>
+        </div>
 
-          <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
-            variants={itemVariants}
-          >
-            We offer effective teeth whitening solutions.
-          </motion.h2>
-
-          <motion.p 
-            className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-relaxed"
-            variants={itemVariants}
-          >
-            Whether you're looking to enhance your smile for a special occasion or
-            simply want to improve your everyday appearance.
-          </motion.p>
-        </motion.div>
-
-        {/* Solutions Grid */}
-        <motion.div 
-          className="grid gap-8 md:gap-12 sm:grid-cols-1 md:grid-cols-3 w-full max-w-6xl mx-auto mb-16"
-          variants={containerVariants}
-        >
-          {solutions.map((item, index) => (
-            <motion.div 
-              key={index} 
-              className="flex flex-col items-center text-center px-4 sm:px-6 py-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group relative overflow-hidden"
-              variants={cardVariants}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3, ease: 'easeOut' }
-              }}
+        {/* Features Row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24">
+          {features.map((feature, idx) => (
+            <motion.div
+              key={idx}
+              variants={fadeUpVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ y: -8, scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="text-center space-y-6 flex flex-col items-center p-6 rounded-3xl transition-all duration-300 hover:bg-secondary/30"
             >
-              {/* Background gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#f5f0e1] to-[#ede4d3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              <div className="relative z-10">
-
-
-                {/* Title */}
-                <h3 className="text-lg md:text-xl font-bold text-[#5c3d2e] mb-4 group-hover:text-[#362212] transition-colors duration-300">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  {item.description}
-                </p>
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                {feature.icon}
               </div>
-
-
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                {feature.title}
+              </h3>
+              <p className="text-slate-500 font-medium leading-relaxed">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* CTA Section */}
-        <motion.div variants={itemVariants}>
-          <motion.a
-            href="/contact-us"
-            className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-[#5c3d2e] to-[#a67c52] text-white font-semibold hover:from-[#704b36] hover:to-[#c19a6b] transition-all duration-300 shadow-xl hover:shadow-2xl text-base md:text-lg"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: '0 20px 40px rgba(92, 61, 46, 0.3)'
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Make Your Teeth Whiter
-            <motion.svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              whileHover={{ x: 2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </motion.svg>
-          </motion.a>
+        {/* Action Button */}
+        <div className="flex justify-center mb-24">
+          <AppButton title='Make Your Teeth Whiter' />
+        </div>
+
+        {/* Before/After Slider */}
+        <motion.div 
+          className="relative w-full max-w-2xl mx-auto rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group"
+          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ duration: 0.4 }}
+        >
+          <ReactBeforeSliderComponent
+            firstImage={FIRST_IMAGE}
+            secondImage={SECOND_IMAGE}
+            className="rounded-[48px] w-full h-auto object-contain"
+          />
         </motion.div>
       </motion.div>
-
-
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default WhiteSolution;
+

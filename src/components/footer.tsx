@@ -44,10 +44,7 @@ const Footer = () => {
 
   return (
     <footer className="relative w-full bg-gradient-to-b from-[#120a05] via-[#1a1008] to-[#201309] text-[#e7d9b0] pt-16 pb-8 px-6 md:px-16 lg:px-24 overflow-hidden">
-      {/* Decorative Accent Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[1px] bg-gradient-to-r from-transparent via-[#c8a95d]/40 to-transparent" />
-
-      <div className="relative flex flex-col md:flex-row justify-between gap-12 md:gap-20 lg:gap-28 z-10">
+      <div className="container mx-auto relative flex flex-col md:flex-row justify-between gap-12 md:gap-20 lg:gap-28 z-10">
         {/* Logo + Description */}
         <div className="flex flex-col items-start max-w-sm">
           <Image
@@ -107,7 +104,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[#c8a95d]/20 mt-12 pt-6 text-center text-xs md:text-sm text-[#d6c9a3]/60">
+      <div className="container mx-auto border-t border-[#c8a95d]/20 mt-12 pt-6 text-center text-xs md:text-sm text-[#d6c9a3]/60">
         © {new Date().getFullYear()} SmileSure. All rights reserved.
       </div>
     </footer>

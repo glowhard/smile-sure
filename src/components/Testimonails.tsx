@@ -1,240 +1,185 @@
+
 'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const testimonials = [
+interface Testimonial {
+  id: number;
+  title: string;
+  quote: string;
+  author: string;
+  handle: string;
+  image: string;
+  platform: 'Google' | 'Zocdoc' | 'Healthgrades' | 'Trustpilot';
+  rating: number;
+}
+
+const allTestimonials: Testimonial[] = [
   {
-    title: "Wonderful Experience!",
-    text: "I've been visiting Dental for years, and I've always had a great experience. The staff is friendly, the office is clean and modern, and Dr. Martinez always takes the time to explain my treatment options. I'm so happy with my smile!",
-    name: "Lisa Miles",
-    role: "Orthodontic Service",
-    image: "https://framerusercontent.com/images/BobOk65j6uDzBORMNee0gKRWGk.jpg",
+    id: 1, title: "Wonderful Experience!", quote: "I've been visiting SmileSure for years. The staff is friendly and professional. The new facility is absolutely state-of-the-art.", author: "Lisa Miles", handle: "@lisamiles", platform: 'Google', rating: 5, image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop",
   },
   {
-    title: "Highly Recommended!",
-    text: "Dr. Wilson and his team made my orthodontic journey smooth and stress-free. The results are incredible, and I feel more confident than ever. I highly recommend Dental for anyone looking for top-notch dental care!",
-    name: "Daniel Dalen",
-    role: "Orthodontic Service",
-    image: "https://framerusercontent.com/images/cPnLmzkyXcZEojXUlOLK54T0yw.jpg",
+    id: 2, title: "Highly Recommended!", quote: "Dr. Wilson and his team made my orthodontic journey stress-free. The results are incredible! I never thought my smile could look this good.", author: "Daniel Dalen", handle: "@danieldalen", platform: 'Trustpilot', rating: 5, image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop",
   },
   {
-    title: "Amazing Experience!",
-    text: "I was nervous about getting my first root canal, but Dr. Martinez and the whole team were so reassuring, kind, and professional. The procedure was quick, and I felt no pain. I'm grateful for the excellent care I received!",
-    name: "Anna Frost",
-    role: "Orthodontic Service",
-    image: "https://framerusercontent.com/images/G45vgYrNZfse4JlMfG3uP8wg.jpg",
+    id: 3, title: "Amazing Experience!", quote: "I was nervous about my root canal, but the team was reassuring and professional. I felt no pain at all during the entire procedure.", author: "Anna Frost", handle: "@annafrost", platform: 'Healthgrades', rating: 5, image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=120&h=120&fit=crop",
   },
+  {
+    id: 4, title: "Professional & Caring", quote: "From the moment I walked in, I felt welcomed. The staff explained everything clearly. Highly recommended for anyone with anxiety.", author: "Samuel Peterson", handle: "@sampete", platform: 'Google', rating: 5, image: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=120&h=120&fit=crop",
+  },
+  {
+    id: 5, title: "Excellent Pediatric Care", quote: "My daughter was nervous for her first visit, but the team made it fun. She left with a big smile and a toy! We found our forever dentist.", author: "Emily Rhodes", handle: "@emrhodes", platform: 'Zocdoc', rating: 5, image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop",
+  },
+  {
+    id: 6, title: "Perfect Restoration", quote: "My dental repair was seamless. I can finally eat comfortably again. Thank you so much for the care and attention to detail.", author: "Marcus Chen", handle: "@marcus_c", platform: 'Trustpilot', rating: 5, image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop",
+  },
+  {
+    id: 7, title: "Gentle and Kind", quote: "I've always had dental anxiety, but this practice is different. They truly listen to your concerns and provide gentle care.", author: "Sarah Jenkins", handle: "@sjenkins", platform: 'Google', rating: 5, image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop",
+  },
+  {
+    id: 8, title: "Life Changing Results", quote: "The cosmetic work I had done here changed how I see myself. I'm no longer afraid to laugh out loud in photos. Thank you!", author: "Robert Taylor", handle: "@robtaylor", platform: 'Zocdoc', rating: 5, image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop",
+  },
+  {
+    id: 9, title: "Modern Technology", quote: "Impressive use of tech. Everything from booking to the actual procedure felt highly efficient and modern. 10/10 would recommend.", author: "Jessica Alba", handle: "@jalba_tech", platform: 'Healthgrades', rating: 5, image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop",
+  }
 ];
 
-const Testimonials = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
+  <motion.div 
+    className="bg-[#f8faff] rounded-[32px] p-10 lg:p-12 border border-slate-100 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] hover:bg-white mb-6"
+    whileHover={{ y: -8, scale: 1.02 }}
+    transition={{ duration: 0.4 }}
+  >
+    <div className="flex items-center justify-between mb-6">
+      <div className="flex gap-1">
+        {[...Array(5)].map((_, i) => (
+          <svg key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-primary' : 'text-slate-200'}`} fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+      <div className="px-4 py-1.5 bg-white rounded-full border border-slate-50 text-xs font-black uppercase tracking-widest text-slate-400">
+        {testimonial.platform}
+      </div>
+    </div>
+    <h3 className="text-xl lg:text-2xl font-bold text-slate-900 mb-4 leading-tight">{testimonial.title}</h3>
+    <p className="text-base lg:text-lg text-slate-500 font-medium leading-relaxed mb-8 italic">"{testimonial.quote}"</p>
+    <div className="flex items-center gap-4 mt-auto">
+      <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+      <div>
+        <h4 className="text-sm lg:text-base font-black text-slate-900 uppercase tracking-tighter leading-none">{testimonial.author}</h4>
+        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1.5">{testimonial.handle}</p>
+      </div>
+    </div>
+  </motion.div>
+);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  };
-
+const VerticalColumn = ({ items, speed = 20, reverse = false }: { items: Testimonial[], speed?: number, reverse?: boolean }) => {
   return (
-    <section className="py-16 lg:py-20 px-4 sm:px-6 flex flex-col items-center relative overflow-hidden">
-      {/* Background decorative elements */}
+    <div className="relative h-[900px] lg:h-[1000px] overflow-hidden">
       <motion.div
-        className="absolute top-10 right-10 w-32 h-32 bg-[#a67c52]/10 rounded-full blur-3xl"
+        className="flex flex-col"
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
+          y: reverse ? [0, -50 + '%'] : [-50 + '%', 0]
         }}
         transition={{
-          duration: 8,
+          duration: speed,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "linear",
         }}
-      />
-
-
-      <motion.div
-        className="max-w-7xl mx-auto relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Heading */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <motion.p 
-            className="text-[#362212] font-semibold uppercase tracking-wide mb-4 text-sm md:text-base"
-            variants={itemVariants}
+        <div className="flex flex-col shrink-0">
+          {[...items, ...items].map((item, idx) => (
+            <TestimonialCard key={`${item.id}-${idx}`} testimonial={item} />
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const Testimonials = () => {
+  return (
+    <section className="py-32 bg-white overflow-hidden">
+      <div className="container mx-auto">
+        {/* Header matching the reference */}
+        <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-24 space-y-6 lg:space-y-8">
+          <motion.span
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="text-primary font-black tracking-[0.3em] text-[11px] uppercase"
           >
             Testimonials
-          </motion.p>
-          <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#362212] leading-tight"
-            variants={itemVariants}
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-5xl lg:text-7xl font-bold tracking-tighter text-slate-900 leading-tight"
           >
             What our patients say.
           </motion.h2>
-        </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-slate-500 font-medium text-lg lg:text-xl leading-relaxed"
+          >
+            Leveraging artificial intelligence and precision medical engineering to provide users <br className="hidden md:block" /> with valuable insights, painless treatments, and better aesthetic outcomes.
+          </motion.p>
+        </div>
 
-        {/* Cards */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl w-full mx-auto"
-          variants={containerVariants}
-        >
-          {testimonials.map((t, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-gradient-to-br from-[#faf8ec] to-[#faf8ec] rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#362212] group relative overflow-hidden"
-              variants={cardVariants}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3, ease: 'easeOut' }
-              }}
-            >
-              {/* Background gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#f5f0e1] to-[#ede4d3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              <div className="relative z-10">
-                {/* Quote Icon */}
-                <motion.div
-                  className="mb-4"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2 + idx * 0.1, duration: 0.4 }}
-                >
-                  <svg className="w-8 h-8 text-[#362212]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </motion.div>
+        {/* Vertical Gallery Layout */}
+        <div className="relative w-full mx-auto">
+          {/* Top/Bottom Fade Overlays */}
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none" />
 
-                {/* Title + Body */}
-                <div className="mb-6">
-                  <motion.h4 
-                    className="text-lg md:text-xl font-bold text-[#362212] mb-4 group-hover:text-[#5c3d2e] transition-colors duration-300"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + idx * 0.1, duration: 0.5 }}
-                  >
-                    "{t.title}"
-                  </motion.h4>
-                  <motion.p 
-                    className="text-gray-600 text-sm md:text-base leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + idx * 0.1, duration: 0.5 }}
-                  >
-                    {t.text}
-                  </motion.p>
-                </div>
-
-                {/* Client Info */}
-                <motion.div 
-                  className="flex items-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg px-4 py-3 group-hover:bg-white group-hover:shadow-xl transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + idx * 0.1, duration: 0.5 }}
-                >
-                  <motion.div
-                    className="relative"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-3 border-white shadow-md"
-                    />
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
-                  </motion.div>
-                  <div className="ml-4 flex-1">
-                    <p className="font-bold text-gray-900 text-sm md:text-base">{t.name}</p>
-                    <p className="text-[#362212] text-xs md:text-sm font-medium">{t.role}</p>
-                  </div>
-                  
-                  {/* Star Rating */}
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <motion.svg
-                        key={i}
-                        className="w-4 h-4 text-yellow-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6 + idx * 0.1 + i * 0.05, duration: 0.3 }}
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </motion.svg>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Decorative corner element */}
-              <motion.div
-                className="absolute top-4 right-4 w-2 h-2 bg-[#a67c52] rounded-full opacity-20 group-hover:opacity-60"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: 0.3 + idx * 0.1, duration: 0.3 }}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Column 1 */}
+            <VerticalColumn
+              items={allTestimonials.slice(0, 3)}
+              speed={25}
+              reverse={true}
+            />
+            {/* Column 2 */}
+            <VerticalColumn
+              items={allTestimonials.slice(3, 6)}
+              speed={35}
+              reverse={false}
+            />
+            {/* Column 3 */}
+            <div className="hidden md:block">
+              <VerticalColumn
+                items={allTestimonials.slice(6, 9)}
+                speed={30}
+                reverse={true}
               />
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+            </div>
+          </div>
+        </div>
 
-      {/* Floating elements */}
-      <motion.div
-        className="absolute top-40 left-16 w-3 h-3 bg-[#a67c52] rounded-full opacity-60"
-        animate={{
-          y: [0, -15, 0],
-          opacity: [0.6, 1, 0.6],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-32 right-20 w-2 h-2 bg-[#8b6f47] rounded-full opacity-50"
-        animate={{
-          y: [0, -10, 0],
-          opacity: [0.5, 0.8, 0.5],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
+        {/* Stats Section Bottom */}
+        <div className="mt-20 lg:mt-24 pt-16 lg:pt-20 border-t border-slate-50 flex flex-wrap justify-center gap-16 lg:gap-20 text-center">
+          <div>
+            <p className="text-4xl lg:text-5xl font-bold text-slate-900">4.9/5</p>
+            <p className="text-xs lg:text-sm font-black tracking-widest uppercase text-slate-400 mt-2">Average Rating</p>
+          </div>
+          <div>
+            <p className="text-4xl lg:text-5xl font-bold text-slate-900">12k+</p>
+            <p className="text-xs lg:text-sm font-black tracking-widest uppercase text-slate-400 mt-2">Happy Patients</p>
+          </div>
+          <div>
+            <p className="text-4xl lg:text-5xl font-bold text-slate-900">98%</p>
+            <p className="text-xs lg:text-sm font-black tracking-widest uppercase text-slate-400 mt-2">Success Rate</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
