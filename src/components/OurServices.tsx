@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 // Consistent fade-up animation variant
 const FADE_DURATION = 0.7;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariant: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -26,59 +27,92 @@ interface Service {
 }
 
 const OurServices = () => {
+  // 8 services in 6 boxes from @footer.tsx (see file_context_0)
+  // Scaling, Tooth Coloured Filling, Ortho Braces, Root Canal Treatment, Crowns & Bridges, Dentures, Children Dental Care, Tooth Extraction
+
   const services: Service[] = [
     {
-      title: 'Preventive Care',
-      description: 'Keep your smile healthy with check-ups, cleanings, and fluoride. Our team ensures your teeth stay strong.',
-      isFeatured: false,
+      title: "Scaling",
+      description: "Remove tough plaque and tartar with gentle ultrasonic scaling and polishing, keeping your gums healthy.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 15l3.75 3.75L12 9l5.25 9 3.75-2.25" />
         </svg>
       )
     },
     {
-      title: 'Oral Surgery',
-      description: 'For complex needs, we provide dental implants, wisdom teeth extractions, and surgery to restore appearance.',
+      title: "Tooth Coloured Filling",
+      description: "Fix cavities and restore your smile with natural-looking, tooth-coloured composite fillings for a seamless look.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 6.487l-.349-1.78A2.25 2.25 0 0014.3 3.75H9.7a2.25 2.25 0 00-2.213 1.957l-.35 1.78M4.75 8.25h14.5m-12.5 0v8.625a2.25 2.25 0 002.25 2.25h5.5a2.25 2.25 0 002.25-2.25V8.25" />
         </svg>
       )
     },
     {
-      title: 'Emergency Care',
-      description: "If you're in pain or facing an urgent dental issue, we offer prompt, gentle, attentive care to help you feel better.",
+      title: "Ortho Braces",
+      description: "Straighten crooked teeth with braces and aligners, helping you achieve a confident, beautiful smile.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5v9a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 16.5v-9A2.25 2.25 0 0018.75 5.25H5.25A2.25 2.25 0 003 7.5zm0 0l9 6 9-6" />
         </svg>
       )
     },
     {
-      title: 'Orthodontics',
-      description: 'Straighten your teeth and improve your smile with traditional braces or clear aligners for lasting confidence.',
+      title: "Root Canal Treatment",
+      description: "Save a badly decayed or painful tooth with advanced root canal therapy and modern pain relief.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v16.5m16.5-16.5v16.5M12 3.75v16.5M3.75 12h16.5" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c1.657 0 3-5.373 3-12S13.657 3 12 3s-3 5.373-3 12 1.343 6 3 6zm0 0V3" />
         </svg>
       )
     },
     {
-      title: 'Cosmetic Dentistry',
-      description: 'Enhance the natural beauty of your smile with services like teeth whitening, veneers, and smile makeovers.',
+      title: "Crowns & Bridges",
+      description: "Restore damaged, cracked, or missing teeth with strong crowns and bridges that look and feel natural.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 7.5l5.5-4.5 5.5 4.5V18a2.5 2.5 0 01-2.5 2.5h-6A2.5 2.5 0 016.5 18V7.5z" />
         </svg>
       )
     },
     {
-      title: 'Dental Repair',
-      description: 'From fillings to crowns and bridges, we restore damaged teeth, improving both their function and appearance.',
+      title: "Dentures",
+      description: "Replace multiple missing teeth with comfortable, custom-made dentures for natural look and function.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.05-.842-.316-1.675-.979-2.227-1.231-1.032-3.124-.944-4.248.213L9.072 10.32m5.036-.424l-4.036 4.037" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.75 10.5c0 5.385 4.865 10 10.75 10S24.25 15.885 24.25 10.5V8.25h-21.5V10.5zm0 0H4.25M19.75 10.5h1.5" />
+        </svg>
+      )
+    },
+    {
+      title: "Children Dental Care",
+      description:
+        "Gentle, friendly dental care for kids—including cleanings, sealants, fluoride, habit guidance, and preventive treatments for a healthy start.",
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+          <circle cx="12" cy="9" r="4" strokeLinecap="round" strokeLinejoin="round" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2 21c0-3.866 4.477-7 10-7s10 3.134 10 7" />
+        </svg>
+      )
+    },
+    {
+      title: "Tooth Extraction",
+      description:
+        "Safe and comfortable tooth extractions for all ages, using modern techniques to ensure patient comfort and a smooth recovery.",
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 19V6a1 1 0 00-2 0v13m7-7a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      )
+    },
+    {
+      title: "Regular Dental Check-up",
+      description: "Comprehensive dental check-ups to maintain oral health, prevent cavities, and spot issues early.",
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+          <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 13.5c.708 1.13 2.203 2 4 2s3.292-.87 4-2m-8-3a1.5 1.5 0 003 0 1.5 1.5 0 10-3 0zm7 0a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0z" />
         </svg>
       )
     },
@@ -111,6 +145,23 @@ const OurServices = () => {
               a range of dental services.
             </motion.h2>
           </div>
+          <motion.div
+            className="hidden lg:flex w-[220px] xl:w-[300px] h-auto items-end justify-end flex-shrink-0"
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.7, type: "spring", stiffness: 160 }}
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <motion.img
+              src="/assets/teeth-character.png"
+              alt="Cute tooth character"
+              className="w-full h-auto object-contain scale-[1.5]"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 140 }}
+              viewport={{ once: true }}
+            />
+          </motion.div>
         </div>
 
         {/* Services Grid */}

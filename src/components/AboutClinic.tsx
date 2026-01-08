@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 const AboutClinic = () => {
   const router = useRouter();
   // Consistent fade-up animation variants
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
@@ -19,6 +20,7 @@ const AboutClinic = () => {
     },
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const itemVariants: any = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -30,6 +32,7 @@ const AboutClinic = () => {
     },
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const featureVariants: any = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -41,6 +44,7 @@ const AboutClinic = () => {
     },
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const videoVariants: any = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -88,24 +92,24 @@ const AboutClinic = () => {
             professionals who prioritize your comfort and well-being.
           </motion.p>
 
-        {/* Features */}
-        <motion.div
-          className="space-y-4 sm:space-y-6 lg:space-y-8"
-          variants={containerVariants}
-        >
-          {/* Feature 1 */}
+          {/* Features */}
           <motion.div
-            className="flex items-start gap-3 sm:gap-4 lg:gap-6 group p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 hover:bg-secondary/50"
-            variants={featureVariants}
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
+            className="space-y-4 sm:space-y-6 lg:space-y-8"
+            variants={containerVariants}
           >
+            {/* Feature 1 */}
+            <motion.div
+              className="flex items-start gap-3 sm:gap-4 lg:gap-6 group p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 hover:bg-secondary/50"
+              variants={featureVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+            >
 
-            <div className="flex-1">
-              <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
-                Patient-Centered Care
-              </h3>
-              <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
+              <div className="flex-1">
+                <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
+                  Patient-Centered Care
+                </h3>
+                <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
                   We prioritize the well-being and comfort of our patients, offering personalized
                   treatments and a supportive environment to make every visit a positive experience.
                 </p>
@@ -114,17 +118,17 @@ const AboutClinic = () => {
 
             {/* Feature 2 */}
             <motion.div
-              className="flex items-start gap-4 lg:gap-6 group rounded-2xl transition-all duration-300 hover:bg-secondary/50"
+              className="flex items-start gap-3 sm:gap-4 lg:gap-6 group p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 hover:bg-secondary/50"
               variants={featureVariants}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
 
-            <div className="flex-1">
-              <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
-                Advanced Treatments
-              </h3>
-              <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
+              <div className="flex-1">
+                <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
+                  Advanced Treatments
+                </h3>
+                <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
                   We are dedicated to providing the highest standard of dental care using advanced
                   techniques and state-of-the-art technology, ensuring optimal results for our patients.
                 </p>

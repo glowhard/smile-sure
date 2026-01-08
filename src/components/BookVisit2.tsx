@@ -174,6 +174,21 @@ const BookVisit2 = () => {
               <PhoneOutgoing size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8" color="#fff" />
             </motion.div>
 
+            <motion.p
+              className="flex items-center gap-3 mb-2"
+              variants={itemVariants}
+            >
+              <span className="text-primary font-extrabold tracking-widest uppercase text-[17px] sm:text-lg md:text-xl drop-shadow-sm">
+                Dr. Shrestha Singh
+              </span>
+            </motion.p>
+            <motion.p
+              className="text-slate-600 font-medium text-base sm:text-lg mb-4 tracking-tight leading-snug italic"
+              variants={itemVariants}
+            >
+              BDS, MDS — Orthodontist <span className="inline text-sm text-primary font-semibold font-sans">(Braces Specialist)</span>
+            </motion.p>
+
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tighter mb-4 sm:mb-6 leading-tight"
               variants={itemVariants}

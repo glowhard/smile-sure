@@ -101,3 +101,17 @@ body {
   border-bottom-right-radius: 32px;
   box-shadow: 16px 16px 0 16px white;
 }
+
+/* Book visit background: allow parallax only on larger screens to avoid mobile jank */
+.bg-book-visit {
+  background-image: url('/assets/header1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+@media (min-width: 768px) {
+  .bg-book-visit {
+    background-attachment: fixed;
+  }
+}

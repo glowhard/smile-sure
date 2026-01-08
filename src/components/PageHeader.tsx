@@ -10,6 +10,7 @@ interface PageHeaderProps {
   backgroundImage?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariant: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {

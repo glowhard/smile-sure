@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import AppButton from './AppButton';
 
 // Consistent fade-up animation variant
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariants: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -18,7 +19,23 @@ const fadeUpVariants: any = {
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-end items-center relative min-h-[500px] sm:min-h-[550px] md:h-[600px] lg:h-[700px] px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden pt-20 sm:pt-24">
+    <div className="relative flex flex-col lg:flex-row justify-end items-center relative min-h-[500px] sm:min-h-[550px] md:h-[600px] lg:h-[700px] px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden pt-20 sm:pt-24">
+
+      {/* Absolute Offer Banner - Responsive & Positioned at absolute top center just below navbar */}
+      <div
+        className="absolute top-30 md:top-40 left-0 w-full z-50 flex justify-center pointer-events-none"
+      >
+        <div
+          className="pointer-events-auto bg-primary text-white rounded-full px-4 sm:px-8 py-2.5 sm:py-3 mx-auto flex flex-col items-center shadow-lg animate-pulse w-full border-2 border-yellow-300"
+          style={{ width: "1000px", maxWidth: '80%' }}
+        >
+          <span className="text-xs sm:text-sm md:text-lg font-semibold text-white text-center">
+            Free digital X Ray +{" "}
+            <span className="text-yellow-300">10% off</span> on all treatment
+          </span>
+        </div>
+      </div>
+
       {/* Video Background with Overlay */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full overflow-hidden"

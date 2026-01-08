@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariant: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {

@@ -10,6 +10,7 @@ import AppButton from './AppButton';
 // Consistent fade-up animation variant
 const FADE_DURATION = 0.7;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariant: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -80,7 +81,7 @@ const WhiteSolution = () => (
             We offer effective teeth <br className="hidden sm:block" /> whitening solutions.
           </h2>
           <p className="text-base sm:text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto px-4">
-            Whether you're looking to enhance your smile for a special occasion or simply want to improve your everyday appearance.
+            Whether you&apos;re looking to enhance your smile for a special occasion or simply want to improve your everyday appearance.
           </p>
         </div>
 

@@ -2,18 +2,17 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 const HeroBottom = () => {
+  const router = useRouter()
+
   const services = [
-    { label: 'Preventive Care', href: './services/preventive-care' },
-    { label: 'Oral Surgery', href: './services/oral-surgery' },
-    {
-      label: 'Emergency Care',
-      href: './services/emergency-care',
-    },
-    { label: 'Orthodontics', href: './services/orthodontics' },
-    { label: 'Cosmetic Dentistry', href: './services/cosmetic-dentistry' },
-    { label: 'Dental Repair', href: './services/dental-repair' },
+    { label: "Ortho Braces", href: "/services" },
+    { label: "Root Canal Treatment", href: "/services" },
+    { label: "Crowns & Bridges", href: "#" },
+    { label: "Dentures", href: "/services" },
+    { label: "Tooth Extraction", href: "/services" },
   ];
 
   const title = 'Services';
@@ -23,6 +22,7 @@ const HeroBottom = () => {
     'https://framerusercontent.com/images/dWARlvTfJvZGsuaCnPbV2hIzCRs.png';
 
   // Consistent fade-up animation variants
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -34,6 +34,7 @@ const HeroBottom = () => {
     },
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const itemVariants: any = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -122,7 +123,7 @@ const HeroBottom = () => {
             {/* RIGHT – Empty spacer (keeps alignment clean like image) */}
             <div className="hidden lg:block lg:col-span-2">
               <p className="text-base leading-7 text-slate-600 max-w-md">
-                Whether you're visiting for a routine check-up or a more advanced
+                Whether you&apos;re visiting for a routine check-up or a more advanced
                 procedure, we ensure your oral health is in the best hands,
                 helping you achieve a confident, healthy smile.
               </p>
@@ -164,7 +165,9 @@ const HeroBottom = () => {
           </motion.div>
 
           {/* Content Container */}
-          <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8">
+          <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8 cursor-pointer" onClick={() => {
+            router.push('/services')
+          }}>
             {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}

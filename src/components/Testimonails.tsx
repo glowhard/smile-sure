@@ -10,43 +10,216 @@ interface Testimonial {
   quote: string;
   author: string;
   handle: string;
-  image: string;
   platform: 'Google' | 'Zocdoc' | 'Healthgrades' | 'Trustpilot';
   rating: number;
 }
 
 const allTestimonials: Testimonial[] = [
   {
-    id: 1, title: "Wonderful Experience!", quote: "I've been visiting SmileSure for years. The staff is friendly and professional. The new facility is absolutely state-of-the-art.", author: "Lisa Miles", handle: "@lisamiles", platform: 'Google', rating: 5, image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop",
+    id: 1,
+    title: "Very Good Experience",
+    quote:
+      "I have been visiting SmileSure for some time now. The doctors and staff are very polite and helpful. The clinic is clean and well maintained.",
+    author: "Pooja Sharma",
+    handle: "@poojasharma",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 2, title: "Highly Recommended!", quote: "Dr. Wilson and his team made my orthodontic journey stress-free. The results are incredible! I never thought my smile could look this good.", author: "Daniel Dalen", handle: "@danieldalen", platform: 'Trustpilot', rating: 5, image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop",
+    id: 2,
+    title: "Highly Satisfied",
+    quote:
+      "Mera braces treatment yahin se hua aur experience kaafi smooth raha. Doctor ne sab clearly explain kiya. Results se main kaafi happy hoon.",
+    author: "Amit Verma",
+    handle: "@amitverma",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 3, title: "Amazing Experience!", quote: "I was nervous about my root canal, but the team was reassuring and professional. I felt no pain at all during the entire procedure.", author: "Anna Frost", handle: "@annafrost", platform: 'Healthgrades', rating: 5, image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=120&h=120&fit=crop",
+    id: 3,
+    title: "Friendly and Professional",
+    quote:
+      "From reception to the dentist, everyone was friendly and professional. They explained each step clearly and made me feel comfortable.",
+    author: "Rohit Mehta",
+    handle: "@rohitmehta",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 4, title: "Professional & Caring", quote: "From the moment I walked in, I felt welcomed. The staff explained everything clearly. Highly recommended for anyone with anxiety.", author: "Samuel Peterson", handle: "@sampete", platform: 'Google', rating: 5, image: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=120&h=120&fit=crop",
+    id: 4,
+    title: "Comfortable Experience",
+    quote:
+      "Usually mujhe dental clinics se thoda fear lagta hai, but SmileSure ka experience kaafi comfortable raha. Doctors are calm and patient.",
+    author: "Simran Kaur",
+    handle: "@simrankaur",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 5, title: "Excellent Pediatric Care", quote: "My daughter was nervous for her first visit, but the team made it fun. She left with a big smile and a toy! We found our forever dentist.", author: "Emily Rhodes", handle: "@emrhodes", platform: 'Zocdoc', rating: 5, image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=120&h=120&fit=crop",
+    id: 5,
+    title: "Good Overall Service",
+    quote:
+      "Appointment process was easy and waiting time was not too long. The treatment went smoothly. Overall a good experience.",
+    author: "Rahul Malhotra",
+    handle: "@rahulmalhotra",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 6, title: "Perfect Restoration", quote: "My dental repair was seamless. I can finally eat comfortably again. Thank you so much for the care and attention to detail.", author: "Marcus Chen", handle: "@marcus_c", platform: 'Trustpilot', rating: 5, image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop",
+    id: 6,
+    title: "Great for Kids",
+    quote:
+      "Mere child ka first dental visit yahin hua. Staff ne kaafi ache se handle kiya and made the experience stress-free.",
+    author: "Anjali Singh",
+    handle: "@anjalisingh",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 7, title: "Gentle and Kind", quote: "I've always had dental anxiety, but this practice is different. They truly listen to your concerns and provide gentle care.", author: "Sarah Jenkins", handle: "@sjenkins", platform: 'Google', rating: 5, image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop",
+    id: 7,
+    title: "Clean Clinic",
+    quote:
+      "The clinic is very clean and well organized. Modern equipment and polite staff. Would definitely recommend.",
+    author: "Sandeep Kumar",
+    handle: "@sandeepk",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 8, title: "Life Changing Results", quote: "The cosmetic work I had done here changed how I see myself. I'm no longer afraid to laugh out loud in photos. Thank you!", author: "Robert Taylor", handle: "@robtaylor", platform: 'Zocdoc', rating: 5, image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop",
+    id: 8,
+    title: "Good Doctor",
+    quote:
+      "Doctor took time to explain the issue properly. Treatment was painless. Staff was also helpful.",
+    author: "Neha Gupta",
+    handle: "@nehagupta",
+    platform: "Google",
+    rating: 5,
   },
   {
-    id: 9, title: "Modern Technology", quote: "Impressive use of tech. Everything from booking to the actual procedure felt highly efficient and modern. 10/10 would recommend.", author: "Jessica Alba", handle: "@jalba_tech", platform: 'Healthgrades', rating: 5, image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop",
-  }
+    id: 9,
+    title: "Smooth Process",
+    quote:
+      "Booking appointment was simple and follow-up was also good. Everything felt well managed.",
+    author: "Karan Khanna",
+    handle: "@karank",
+    platform: "Google",
+    rating: 4,
+  },
+  {
+    id: 10,
+    title: "Satisfied with Treatment",
+    quote:
+      "Root canal treatment went better than expected. Minimal pain and good post-treatment care.",
+    author: "Meenal Joshi",
+    handle: "@meenalj",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 11,
+    title: "Nice Experience",
+    quote:
+      "Staff ka behavior kaafi acha tha aur doctor bhi patiently sunte hain. Overall positive experience.",
+    author: "Vikas Arora",
+    handle: "@vikasarora",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 12,
+    title: "Professional Setup",
+    quote:
+      "Clinic looks modern and well maintained. The whole team is professional and courteous.",
+    author: "Ritika Jain",
+    handle: "@ritikaj",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 13,
+    title: "Good Experience",
+    quote:
+      "Treatment was good and doctor explained everything clearly. Waiting time could be slightly better.",
+    author: "Deepak Bansal",
+    handle: "@deepakb",
+    platform: "Google",
+    rating: 4,
+  },
+  {
+    id: 14,
+    title: "Friendly Team",
+    quote:
+      "Staff is very cooperative and polite. Felt comfortable throughout the visit.",
+    author: "Priya Nair",
+    handle: "@priyanair",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 15,
+    title: "Happy with Results",
+    quote:
+      "Cosmetic treatment ke results kaafi ache aaye. Confidence bhi improve hua.",
+    author: "Arjun Mehra",
+    handle: "@arjunmehra",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 16,
+    title: "Good Dental Clinic",
+    quote:
+      "Overall experience achha raha. Doctors knowledgeable hain aur staff supportive hai.",
+    author: "Kavita Saxena",
+    handle: "@kavitas",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 17,
+    title: "Reliable Clinic",
+    quote:
+      "Been here multiple times and service has been consistent. Doctors explain things honestly.",
+    author: "Mohit Aggarwal",
+    handle: "@mohita",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 18,
+    title: "Comfortable Treatment",
+    quote:
+      "Pain kaafi kam tha aur doctor ne continuously check kiya if I was comfortable.",
+    author: "Nisha Kulkarni",
+    handle: "@nishak",
+    platform: "Google",
+    rating: 5,
+  },
+  {
+    id: 19,
+    title: "Well Managed",
+    quote:
+      "Clinic is well managed and staff coordination is good. Overall smooth experience.",
+    author: "Alok Mishra",
+    handle: "@alokm",
+    platform: "Google",
+    rating: 4,
+  },
+  {
+    id: 20,
+    title: "Recommended",
+    quote:
+      "Good doctors, polite staff and clean clinic. Would recommend SmileSure to others.",
+    author: "Shweta Pandey",
+    handle: "@shwetap",
+    platform: "Google",
+    rating: 5,
+  },
 ];
 
+
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-  <motion.div 
+  <motion.div
     className="bg-[#f8faff] rounded-2xl sm:rounded-3xl md:rounded-[32px] p-6 sm:p-8 md:p-10 lg:p-12 border border-slate-100 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] hover:bg-white mb-4 sm:mb-6"
     whileHover={{ y: -8, scale: 1.02 }}
     transition={{ duration: 0.4 }}
@@ -64,9 +237,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
       </div>
     </div>
     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 leading-tight">{testimonial.title}</h3>
-    <p className="text-sm sm:text-base lg:text-lg text-slate-500 font-medium leading-relaxed mb-6 sm:mb-8 italic">"{testimonial.quote}"</p>
+    <p className="text-sm sm:text-base lg:text-lg text-slate-500 font-medium leading-relaxed mb-6 sm:mb-8 italic">&quot;{testimonial.quote}&quot;</p>
     <div className="flex items-center gap-3 sm:gap-4 mt-auto">
-      <img src={testimonial.image} alt={testimonial.author} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm" />
+      {/* <img src={testimonial.image} alt={testimonial.author} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm" /> */}
       <div>
         <h4 className="text-xs sm:text-sm lg:text-base font-black text-slate-900 uppercase tracking-tighter leading-none">{testimonial.author}</h4>
         <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider sm:tracking-widest mt-1 sm:mt-1.5">{testimonial.handle}</p>
@@ -167,15 +340,15 @@ const Testimonials = () => {
         {/* Stats Section Bottom */}
         <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 pt-12 sm:pt-16 lg:pt-20 border-t border-slate-50 flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 text-center px-4">
           <div>
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">4.9/5</p>
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">4.5/5</p>
             <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Average Rating</p>
           </div>
           <div>
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">12k+</p>
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">4k+</p>
             <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Happy Patients</p>
           </div>
           <div>
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">98%</p>
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">99%</p>
             <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Success Rate</p>
           </div>
         </div>

@@ -2,10 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useContactEmail } from "../hooks/useContactEmail";
 
 // Consistent fade-up animation variant
 const FADE_DURATION = 0.7;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariant: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -18,16 +20,23 @@ const fadeUpVariant: any = {
 };
 
 const BookVisit = () => {
+  const { send, isLoading, toast, toastVariant } = useContactEmail();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
+    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value;
+    const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value;
+    const date = (form.elements.namedItem("date") as HTMLInputElement)?.value;
+
+    await send({ email, name, phone, date });
+  };
+
   return (
     <section
       id="book-visit"
-      className="relative py-16 sm:py-24 md:py-32 overflow-hidden"
-      style={{
-        backgroundImage: "url('/assets/header1.png')",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative py-16 sm:py-24 md:py-32 overflow-hidden bg-book-visit"
     >
       {/* Overlay for contrast */}
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
@@ -61,15 +70,17 @@ const BookVisit = () => {
             variants={fadeUpVariant}
             transition={{ duration: FADE_DURATION }}
           >
-            Whether it's your first visit or you're a returning patient, our team
+            Whether it&apos;s your first visit or you&apos;re a returning patient, our team
             is here to provide you with personalized care in a relaxed and
             friendly environment.
           </motion.p>
 
-          <div className="h-[80px] sm:h-[100px] md:h-[120px]"></div>
+          {/* Spacer above the floating card on larger screens */}
+          <div className="h-12 sm:h-16 md:h-24 lg:h-28"></div>
 
           {/* Form Card */}
-          <div className="flex items-center justify-center w-full absolute bottom-0 left-0 transform translate-y-1/2 px-2 sm:px-0">
+          {/* On mobile, card sits naturally in the flow; on larger screens it "floats" over the background */}
+          <div className="flex items-center justify-center w-full px-2 sm:px-0 md:absolute md:bottom-0 md:left-0 md:translate-y-1/2">
             <motion.div
               className="w-full sm:w-[95%] md:w-[90%] lg:w-[85%] bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-100"
               variants={fadeUpVariant}
@@ -80,53 +91,55 @@ const BookVisit = () => {
                 variants={fadeUpVariant}
                 transition={{ duration: FADE_DURATION }}
               >
-                Fill out the form below, and we'll get back to you as soon as possible.
+                Fill out the form below, and we&apos;ll get back to you as soon as possible.
               </motion.p>
 
-              <form className="flex flex-col lg:flex-row items-stretch gap-2.5 sm:gap-3 md:gap-4">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col lg:flex-row items-stretch gap-2.5 sm:gap-3 md:gap-4"
+              >
                 <motion.input
                   type="text"
+                  name="name"
                   placeholder="FULL NAME*"
                   className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a67c52] focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-500"
-                  variants={fadeUpVariant}
-                  transition={{ duration: FADE_DURATION }}
                   required
                 />
                 <motion.input
                   type="email"
+                  name="email"
                   placeholder="EMAIL*"
                   className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a67c52] focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-500"
-                  variants={fadeUpVariant}
-                  transition={{ duration: FADE_DURATION }}
                   required
                 />
                 <motion.input
                   type="tel"
+                  name="phone"
                   placeholder="PHONE NUMBER*"
                   className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a67c52] focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-500"
-                  variants={fadeUpVariant}
-                  transition={{ duration: FADE_DURATION }}
                   required
                 />
                 <motion.input
                   type="date"
+                  name="date"
                   className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a67c52] focus:border-transparent transition-all duration-300 text-xs sm:text-sm md:text-base"
-                  variants={fadeUpVariant}
-                  transition={{ duration: FADE_DURATION }}
                   required
                 />
                 <motion.button
                   type="submit"
+                  disabled={isLoading}
                   className="flex items-center justify-center px-4 py-2.5 sm:px-6 sm:py-3 md:py-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#5c3d2e] to-[#a67c52] hover:from-[#704b36] hover:to-[#c19a6b] transition-all duration-300 text-white font-semibold text-xs sm:text-sm lg:w-auto w-full"
-                  variants={fadeUpVariant}
                   whileHover={{
                     scale: 1.05,
                   }}
                   whileTap={{ scale: 0.95 }}
-                  transition={{ duration: FADE_DURATION }}
                 >
-                  <span className="hidden sm:inline">Submit</span>
-                  <span className="sm:hidden">Send</span>
+                  <span className="hidden sm:inline">
+                    {isLoading ? "Sending..." : "Submit"}
+                  </span>
+                  <span className="sm:hidden">
+                    {isLoading ? "Sending..." : "Send"}
+                  </span>
                   <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 sm:h-5 sm:w-5 ml-2"
@@ -140,10 +153,18 @@ const BookVisit = () => {
                   </motion.svg>
                 </motion.button>
               </form>
+              {toast && (
+                <div
+                  className={`mt-3 sm:mt-4 rounded-lg border px-3 py-2 text-xs sm:text-sm font-medium transition-colors ${toastVariant}`}
+                >
+                  {toast.message}
+                </div>
+              )}
             </motion.div>
           </div>
         </motion.div>
-        <div className="h-38" />
+        {/* Extra bottom padding so the floating card never gets cut off on small screens */}
+        <div className="h-12 sm:h-16 md:h-24" />
       </div>
     </section>
   );

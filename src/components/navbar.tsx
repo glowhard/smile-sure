@@ -44,6 +44,12 @@ const Navbar: React.FC = () => {
     }
   }, [isMenuOpen]);
 
+  const isPrivacyPage = pathname === '/privacy';
+
+  if(isPrivacyPage) {
+    return null;
+  }
+
   return (
     <>
       <motion.nav

@@ -158,7 +158,7 @@ export default function BookingButton({
                   </div>
                   <div>
                     <h2 className="text-3xl font-bold">Book Your Appointment</h2>
-                    <p className="text-white/80 mt-1">We'll get back to you within 24 hours</p>
+                    <p className="text-white/80 mt-1">We&apos;ll get back to you within 24 hours</p>
                   </div>
                 </div>
               </div>
@@ -244,15 +244,14 @@ export default function BookingButton({
                 <motion.button
                   type="submit"
                   disabled={submitStatus === 'loading'}
-                  className={`w-full py-4 rounded-xl font-semibold text-white transition-all shadow-lg ${
-                    submitStatus === 'loading'
+                  className={`w-full py-4 rounded-xl font-semibold text-white transition-all shadow-lg ${submitStatus === 'loading'
                       ? 'bg-gray-400 cursor-not-allowed'
                       : submitStatus === 'success'
-                      ? 'bg-green-500 shadow-green-500/25'
-                      : submitStatus === 'error'
-                      ? 'bg-red-500 shadow-red-500/25'
-                      : 'bg-gradient-to-r from-[#5c3d2e] to-[#a67c52] shadow-[#a67c52]/25 hover:shadow-xl'
-                  }`}
+                        ? 'bg-green-500 shadow-green-500/25'
+                        : submitStatus === 'error'
+                          ? 'bg-red-500 shadow-red-500/25'
+                          : 'bg-gradient-to-r from-[#5c3d2e] to-[#a67c52] shadow-[#a67c52]/25 hover:shadow-xl'
+                    }`}
                   whileHover={submitStatus === 'idle' ? { scale: 1.02 } : {}}
                   whileTap={submitStatus === 'idle' ? { scale: 0.98 } : {}}
                 >
