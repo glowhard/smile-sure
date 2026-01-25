@@ -49,7 +49,7 @@ const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderPr
           >
             <img
               src={backgroundImage}
-              alt=""
+              alt={`${label} - ${title}`}
               className="w-full h-full object-cover scale-[1.1] sm:scale-[1.12] md:scale-[1.15]"
               draggable={false}
             />

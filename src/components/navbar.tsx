@@ -195,7 +195,7 @@ const Navbar: React.FC = () => {
               <button className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold tracking-widest text-sm shadow-xl">
                 SCHEDULE A VISIT
               </button>
-              <p className="text-center text-slate-400 mt-6 text-sm">Call us: (555) 123-4567</p>
+              <p className="text-center text-slate-400 mt-6 text-sm">Call us: 9220688266</p>
             </motion.div>
           </motion.div>
         )}

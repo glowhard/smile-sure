@@ -4,44 +4,42 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import AppButton from './AppButton';
 
-// Consistent fade-up animation variant
+// Staggered animation variants
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const containerVariants: any = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fadeUpVariants: any = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1]
     }
   }
 };
 
 const Hero = () => {
   return (
-    <div className="relative flex flex-col lg:flex-row justify-end items-center relative min-h-[500px] sm:min-h-[550px] md:h-[600px] lg:h-[700px] px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden pt-20 sm:pt-24">
-
-      {/* Absolute Offer Banner - Responsive & Positioned at absolute top center just below navbar */}
-      <div
-        className="absolute top-30 md:top-40 left-0 w-full z-50 flex justify-center pointer-events-none"
-      >
-        <div
-          className="pointer-events-auto bg-primary text-white rounded-full px-4 sm:px-8 py-2.5 sm:py-3 mx-auto flex flex-col items-center shadow-lg animate-pulse w-full border-2 border-yellow-300"
-          style={{ width: "1000px", maxWidth: '80%' }}
-        >
-          <span className="text-xs sm:text-sm md:text-lg font-semibold text-white text-center">
-            Free digital X Ray +{" "}
-            <span className="text-yellow-300">10% off</span> on all treatment
-          </span>
-        </div>
-      </div>
+    <div className="relative flex items-center justify-center min-h-[600px] md:min-h-[700px] lg:min-h-[85vh] px-6 md:px-12 lg:px-16 overflow-hidden">
 
       {/* Video Background with Overlay */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-full overflow-hidden"
+        className="absolute inset-0 overflow-hidden"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: 'easeOut' }}
+        transition={{ duration: 2, ease: 'easeOut' }}
       >
         <video
           className="w-full h-full object-cover"
@@ -51,51 +49,66 @@ const Hero = () => {
           playsInline
           src="/videos/hero-vid.mp4"
         />
-        {/* Enhanced overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/40" />
+        {/* Gradient overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
       </motion.div>
 
+      {/* Content Container */}
       <motion.div
-        className='container mx-auto flex flex-col justify-end h-full w-full'
+        className="container mx-auto relative z-10 max-w-6xl"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
+        {/* Promotional Badge */}
         <motion.div
-          className='flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 lg:gap-[70px] relative z-10 w-full lg:w-2/3 pb-12 sm:pb-16 md:pb-20'
+          className="mb-8 md:mb-12 flex justify-center lg:justify-start"
           variants={fadeUpVariants}
-          initial="hidden"
-          animate="visible"
         >
-          {/* Main Title */}
-          <motion.div
-            className="flex flex-col text-center lg:text-left text-5xl lg:text-6xl xl:text-8xl w-full text-white font-bold leading-[1.1] sm:leading-tight tracking-[-2px] sm:tracking-[-3px] md:tracking-[-5px]"
-            variants={fadeUpVariants}
-          >
-            <span>
-              Exceptional
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 text-white">
+            <span className="text-sm md:text-base font-medium">
+              Free Digital X-Ray + <span className="text-yellow-300 font-semibold">10% Off</span> All Treatments
             </span>
-            <span>
-              dental care.
-            </span>
+          </div>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+          {/* Left: Headline */}
+          <motion.div variants={fadeUpVariants}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight text-center lg:text-left">
+              Exceptional<br />
+              <span className="text-white/90">dental care.</span>
+            </h1>
           </motion.div>
 
-          {/* Content Section */}
+          {/* Right: Description & CTA */}
           <motion.div
-            className="flex flex-col w-full gap-6 sm:gap-8 lg:gap-[40px] text-white text-center lg:text-left justify-center"
+            className="flex flex-col gap-6 text-center lg:text-left"
             variants={fadeUpVariants}
           >
-            <h2
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-white leading-relaxed"
-            >
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-lg mx-auto lg:mx-0">
               Our team is committed to delivering top-quality, compassionate treatments in a comfortable environment.
-            </h2>
+            </p>
 
-            <div className="flex justify-center lg:justify-start">
-              <AppButton title='Book Now' onTap={() => {
-                window.location.href = "/#book-visit"
-              }} />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <AppButton
+                title='Book Appointment'
+                onTap={() => {
+                  window.location.href = "/#book-visit"
+                }}
+              />
+              <button
+                onClick={() => window.location.href = "/services"}
+                className="px-8 py-4 rounded-full border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              >
+                Our Services
+              </button>
             </div>
           </motion.div>
-        </motion.div>
+
+        </div>
       </motion.div>
     </div>
   );
