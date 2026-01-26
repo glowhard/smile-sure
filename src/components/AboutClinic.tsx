@@ -4,48 +4,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import AppButton from './AppButton';
 import { useRouter } from 'next/navigation';
+import { containerVariants, itemVariants, featureVariants } from '@/src/constants/animations';
 
 const AboutClinic = () => {
   const router = useRouter();
-  // Consistent fade-up animation variants
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const containerVariants: any = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7
-      },
-    },
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const featureVariants: any = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      },
-    },
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const videoVariants: any = {
+  const videoVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,

@@ -3,32 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AppButton from './AppButton';
-
-// Staggered animation variants
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const containerVariants: any = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3
-    }
-  }
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const fadeUpVariants: any = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
-};
+import { containerVariants, fadeUpVariant } from '@/src/constants/animations';
 
 const Hero = () => {
   return (
@@ -63,7 +38,7 @@ const Hero = () => {
         {/* Promotional Badge */}
         <motion.div
           className="mb-8 md:mb-12 flex justify-center lg:justify-start"
-          variants={fadeUpVariants}
+          variants={fadeUpVariant}
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 text-white shadow-lg">
             <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
@@ -79,7 +54,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
           {/* Left: Headline */}
-          <motion.div variants={fadeUpVariants}>
+          <motion.div variants={fadeUpVariant}>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight text-center lg:text-left">
               Your Smile,<br />
               <span className="text-white/90 whitespace-nowrap">Our Mission.</span>
@@ -89,7 +64,7 @@ const Hero = () => {
           {/* Right: Description & CTA */}
           <motion.div
             className="flex flex-col gap-6 text-center lg:text-left"
-            variants={fadeUpVariants}
+            variants={fadeUpVariant}
           >
             <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-lg mx-auto lg:mx-0">
               Expert orthodontic care and comprehensive dental treatments by Dr. Shrestha Singh (MDS Orthodontist) in the heart of Noida, Sector 120.
@@ -113,7 +88,7 @@ const Hero = () => {
             {/* Trust Indicators */}
             <motion.div
               className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 pt-4"
-              variants={fadeUpVariants}
+              variants={fadeUpVariant}
             >
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">

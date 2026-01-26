@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { fadeUpVariant } from '@/src/constants/animations';
 
 interface PageHeaderProps {
   label: string;
@@ -9,18 +10,6 @@ interface PageHeaderProps {
   description?: string;
   backgroundImage?: string;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const fadeUpVariant: any = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7
-    }
-  }
-};
 
 const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderProps) => {
   const { scrollY } = useScroll();

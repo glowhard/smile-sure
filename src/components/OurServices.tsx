@@ -3,21 +3,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-
-// Consistent fade-up animation variant
-const FADE_DURATION = 0.7;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const fadeUpVariant: any = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: FADE_DURATION
-    }
-  }
-};
+import { fadeUpVariant } from '@/src/constants/animations';
 
 interface Service {
   id: string;

@@ -6,21 +6,7 @@ import { motion } from 'framer-motion';
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';
 import 'react-before-after-slider-component/dist/build.css';
 import AppButton from './AppButton';
-
-// Consistent fade-up animation variant
-const FADE_DURATION = 0.7;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const fadeUpVariant: any = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: FADE_DURATION
-    }
-  }
-};
+import { fadeUpVariant } from '@/src/constants/animations';
 
 const FIRST_IMAGE = {
   imageUrl: '/images/teeth-white.jpg',

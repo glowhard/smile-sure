@@ -3,17 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Clock, Heart, Shield, Sparkles, Users } from 'lucide-react';
-
-const fadeUpVariant = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7
-    }
-  }
-};
+import { fadeUpVariant } from '@/src/constants/animations';
 
 const reasons = [
   {

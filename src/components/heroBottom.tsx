@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { containerVariants, itemVariants } from '@/src/constants/animations';
 
 const HeroBottom = () => {
   const router = useRouter()
@@ -21,31 +22,6 @@ const HeroBottom = () => {
     'From orthodontics to general dentistry, we offer comprehensive treatments designed to give you a healthy, confident smile.';
   const img =
     'https://framerusercontent.com/images/dWARlvTfJvZGsuaCnPbV2hIzCRs.png';
-
-  // Consistent fade-up animation variants
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7
-      },
-    },
-  };
 
   return (
     <motion.section

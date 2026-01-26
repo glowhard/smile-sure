@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import AppButton from "./AppButton";
 import { PhoneOutgoing, CheckCircle2 } from "lucide-react";
+import { containerVariants, itemVariants, featureVariants } from '@/src/constants/animations';
 
 const features = [
   "Comprehensive Services",
@@ -14,40 +15,7 @@ const features = [
 ];
 
 const BookVisit2 = () => {
-  // Consistent fade-up animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7
-      },
-    },
-  };
-
-  const featureVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      },
-    },
-  };
-
+  // Custom image animation variant (longer duration)
   const imageVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
