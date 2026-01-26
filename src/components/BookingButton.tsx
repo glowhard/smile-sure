@@ -44,7 +44,7 @@ export default function BookingButton({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '4511f9eb-b6a1-44dc-a429-d3ee9ba6d22d',
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -66,8 +66,7 @@ export default function BookingButton({
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
       setSubmitStatus('error');
     }
   };

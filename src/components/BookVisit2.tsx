@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AppButton from "./AppButton";
-import { PhoneOutgoing } from "lucide-react";
+import { PhoneOutgoing, CheckCircle2 } from "lucide-react";
 
 const features = [
   "Comprehensive Services",
@@ -60,7 +60,13 @@ const BookVisit2 = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+    <section id="meet-doctor" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white via-secondary/30 to-white overflow-hidden relative">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-center"
@@ -74,9 +80,12 @@ const BookVisit2 = () => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-primary font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] uppercase mb-4 sm:mb-6"
+              className="flex items-center gap-2 mb-6 sm:mb-8"
             >
-              Book a Visit
+              <div className="w-1 h-8 bg-gradient-to-b from-primary to-primary/50 rounded-full"></div>
+              <span className="text-primary font-black tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] uppercase">
+                Why Choose Us
+              </span>
             </motion.div>
 
             <motion.div
@@ -84,20 +93,21 @@ const BookVisit2 = () => {
               variants={containerVariants}
             >
               {features.map((item, i) => (
-                <motion.button
+                <motion.div
                   key={i}
-                  className="px-3 py-1.5 sm:px-4 sm:py-2 border-2 border-[#362212] rounded-full text-[#362212] text-xs sm:text-sm md:text-base font-semibold hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 text-left group relative overflow-hidden"
+                  className="px-4 py-3 sm:px-5 sm:py-3.5 bg-white border-2 border-slate-100 rounded-2xl text-slate-800 text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 text-left group relative overflow-hidden cursor-default shadow-sm hover:shadow-md"
                   variants={featureVariants}
-                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileHover={{ y: -3, scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
                   {/* Background animation on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
 
-                  <span className="relative z-10">
-                    {item}
-                  </span>
-                </motion.button>
+                  <div className="relative z-10 flex items-center gap-3">
+                    <CheckCircle2 size={18} className="text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="flex-1">{item}</span>
+                  </div>
+                </motion.div>
               ))}
             </motion.div>
           </motion.div>
@@ -110,23 +120,26 @@ const BookVisit2 = () => {
             <motion.div
               className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-none"
               whileHover={{
-                scale: 1.05,
+                scale: 1.03,
                 y: -8,
                 transition: { duration: 0.4 }
               }}
             >
-              <img
-                src="/assets/doctor.jpeg"
-                alt="Professional Dentist"
-                className="rounded-2xl sm:rounded-3xl w-full h-auto max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-none lg:h-full object-cover shadow-2xl"
-              />
+              {/* Image container with enhanced border */}
+              <div className="relative p-2 bg-gradient-to-br from-primary/20 via-secondary/10 to-white rounded-3xl sm:rounded-[2rem] shadow-2xl">
+                <img
+                  src="/assets/doctor.jpeg"
+                  alt="Dr. Shrestha Singh - Professional Orthodontist"
+                  className="rounded-2xl sm:rounded-3xl w-full h-auto max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-none lg:h-full object-cover"
+                />
 
-              {/* Decorative frame */}
-              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                {/* Decorative frame */}
+                <div className="absolute inset-2 rounded-2xl sm:rounded-3xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
 
-              {/* Floating badge */}
+              {/* Floating badge - Verified */}
               <motion.div
-                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 sm:p-3 md:p-4 shadow-xl border border-gray-100"
+                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-gradient-to-br from-white to-primary/10 rounded-full p-3 sm:p-3 md:p-4 shadow-xl border-2 border-primary/30"
                 initial={{ opacity: 0, scale: 0, rotate: -180 }}
                 whileInView={{
                   opacity: 1,
@@ -143,9 +156,23 @@ const BookVisit2 = () => {
                   ease: "easeInOut"
                 }}
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#362212]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+              </motion.div>
+
+              {/* Experience badge */}
+              <motion.div
+                className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-primary text-white rounded-2xl px-4 py-2.5 shadow-lg"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  transition: { delay: 0.7, duration: 0.5 }
+                }}
+              >
+                <p className="text-xs sm:text-sm font-bold">10+ Years</p>
+                <p className="text-[10px] sm:text-xs opacity-90">Experience</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -153,8 +180,9 @@ const BookVisit2 = () => {
           {/* Right Column - Content */}
           <motion.div className="order-2 lg:order-3 h-full flex flex-col items-start justify-start lg:justify-end" variants={itemVariants}>
 
-            <motion.div
-              className="inline-flex items-center justify-center rounded-full bg-primary w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] md:w-[62px] md:h-[62px] mb-4 sm:mb-6"
+            <motion.a
+              href="tel:9220688266"
+              className="inline-flex items-center justify-center rounded-full bg-primary w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] md:w-[62px] md:h-[62px] mb-4 sm:mb-6 cursor-pointer hover:bg-primary/90 transition-colors"
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               whileInView={{
                 opacity: 1,
@@ -170,41 +198,41 @@ const BookVisit2 = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <PhoneOutgoing size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8" color="#fff" />
-            </motion.div>
+            </motion.a>
 
-            <motion.p
-              className="flex items-center gap-3 mb-2"
+            <motion.div
+              className="bg-gradient-to-br from-primary/10 via-secondary/5 to-white border-2 border-primary/20 rounded-2xl p-4 sm:p-5 mb-6 shadow-lg"
               variants={itemVariants}
             >
-              <span className="text-primary font-extrabold tracking-widest uppercase text-[17px] sm:text-lg md:text-xl drop-shadow-sm">
-                Dr. Shrestha Singh
-              </span>
-            </motion.p>
-            <motion.p
-              className="text-slate-600 font-medium text-base sm:text-lg mb-4 tracking-tight leading-snug italic"
-              variants={itemVariants}
-            >
-              BDS, MDS — Orthodontist <span className="inline text-sm text-primary font-semibold font-sans">(Braces Specialist)</span>
-            </motion.p>
+              <p className="flex items-center gap-3 mb-2">
+                <span className="text-primary font-extrabold tracking-widest uppercase text-[17px] sm:text-lg md:text-xl drop-shadow-sm">
+                  Dr. Shrestha Singh
+                </span>
+              </p>
+              <p className="text-slate-700 font-medium text-base sm:text-lg tracking-tight leading-snug">
+                BDS, MDS — Orthodontist <span className="inline text-sm text-primary font-bold font-sans">(Braces Specialist)</span>
+              </p>
+            </motion.div>
 
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tighter mb-4 sm:mb-6 leading-tight"
               variants={itemVariants}
             >
-              Schedule your visit with us today!
+              Transform Your Smile with Expert Care
             </motion.h2>
 
             <motion.p
               className="text-slate-500 mb-6 sm:mb-8 text-base sm:text-lg lg:text-xl font-medium leading-relaxed"
               variants={itemVariants}
             >
-              Our dedicated team at Dental is here to provide you with expert
-              dental care in a comfortable and welcoming environment.
+              Experience world-class dental care with Dr. Shrestha Singh and our dedicated team. From routine check-ups to advanced orthodontic treatments, we're committed to your oral health journey.
             </motion.p>
 
-            <AppButton title="Schedule an Appointment" onTap={() => {
+            <AppButton title="Book Your Appointment" onTap={() => {
               window.location.href = "/#book-visit"
             }} />
           </motion.div>

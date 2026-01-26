@@ -19,39 +19,39 @@ const fadeUpVariant: any = {
 const galleryImages = [
   {
     src: '/assets/waiting-area.jpeg',
-    alt: 'Comfortable Waiting Area',
-    title: 'Welcoming Environment',
-    description: 'A relaxing and comfortable space designed for your peace of mind.'
+    alt: 'SmileSure Waiting Area - Sector 120, Noida',
+    title: 'Welcoming Waiting Area',
+    description: 'Our spacious, air-conditioned waiting area in Sector 120 offers a relaxing atmosphere with comfortable seating while you wait.'
   },
   {
     src: '/assets/cabin1.jpeg',
-    alt: 'Modern Treatment Cabin',
-    title: 'State-of-the-Art Facilities',
-    description: 'Equipped with the latest technology for optimal patient care.'
+    alt: 'SmileSure Treatment Cabin',
+    title: 'Private Treatment Cabin',
+    description: 'Our modern treatment cabins are equipped with digital X-ray systems and advanced dental units for comprehensive care.'
   },
   {
     src: '/assets/chair1.jpeg',
-    alt: 'Dental Chair',
-    title: 'Comfortable Treatment',
-    description: 'Premium dental chairs designed for maximum patient comfort.'
+    alt: 'Premium Dental Chair at SmileSure',
+    title: 'Comfortable Treatment Chairs',
+    description: 'Ergonomic dental chairs with LED lighting and multimedia displays ensure a comfortable, anxiety-free experience during procedures.'
   },
   {
     src: '/assets/chair2.jpeg',
-    alt: 'Modern Dental Equipment',
-    title: 'Advanced Equipment',
-    description: 'Cutting-edge dental technology for precise and efficient treatments.'
+    alt: 'Advanced Dental Equipment',
+    title: 'Advanced Technology',
+    description: 'Cutting-edge equipment including rotary endodontic systems, ultrasonic scalers, and digital imaging for precision treatment.'
   },
   {
     src: '/assets/chair3.jpeg',
-    alt: 'Treatment Room',
-    title: 'Modern Treatment Rooms',
-    description: 'Spacious and well-equipped rooms for all your dental needs.'
+    alt: 'SmileSure Treatment Room',
+    title: 'Sterilized Treatment Rooms',
+    description: 'Spacious, well-ventilated rooms with strict sterilization protocols and proper infection control measures for your safety.'
   },
   {
     src: '/assets/chair4.jpeg',
-    alt: 'Another Dental Chair',
-    title: 'Additional Comfort',
-    description: 'Experience extra comfort and support with our newest dental chair setup.'
+    alt: 'SmileSure Orthodontic Setup',
+    title: 'Orthodontic Excellence',
+    description: 'Specialized setup for orthodontic treatments including braces and aligners, led by Dr. Shrestha Singh (MDS Orthodontist).'
   }
 ];
 
@@ -83,8 +83,7 @@ const ClinicGallery = () => {
             className="text-base sm:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-4"
             variants={fadeUpVariant}
           >
-            Step inside our state-of-the-art clinic and discover a space designed for your comfort,
-            equipped with the latest technology, and staffed by caring professionals.
+            Step inside our state-of-the-art clinic in Noida and discover a space designed for your comfort, equipped with the latest technology, and staffed by caring professionals dedicated to exceptional dental care.
           </motion.p>
         </motion.div>
 
@@ -145,8 +144,7 @@ const ClinicGallery = () => {
             className="text-base sm:text-lg lg:text-xl text-slate-600 font-medium mb-8 max-w-2xl mx-auto"
             variants={fadeUpVariant}
           >
-            We invite you to visit our clinic and experience the difference that modern facilities
-            and compassionate care can make in your dental health journey.
+            Visit SmileSure in Sector 120, Noida and experience the perfect blend of modern facilities, expert care by Dr. Shrestha Singh, and a warm, welcoming environment that makes every dental visit comfortable.
           </motion.p>
         </motion.div>
       </div>

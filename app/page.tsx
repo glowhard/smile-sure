@@ -6,7 +6,6 @@ import HeroBottom from '@/src/components/heroBottom';
 import OurServices from '@/src/components/OurServices';
 import Testimonials from '@/src/components/Testimonails';
 import WhiteSolution from '@/src/components/WhiteSolution';
-import Image from 'next/image';
 
 export default function Home() {
   return (

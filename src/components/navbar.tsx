@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           <Link href="/" className="flex items-center gap-2 group cursor-pointer">
             <Image
               src={!isScrolled && !isMenuOpen ? '/mainLogo-light.png' : '/mainLogo-dark.png'}
-              alt="Company Logo"
+              alt="SmileSure Dental Care Logo"
               width={100}
               height={100}
               className={`w-auto transition-all duration-200 md:duration-250 ${isScrolled ? 'h-16 sm:h-20 md:h-22' : 'h-20 sm:h-24 md:h-28 lg:h-32'}`}
@@ -192,10 +192,21 @@ const Navbar: React.FC = () => {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.32, type: 'spring', damping: 15, stiffness: 100 }}
             >
-              <button className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold tracking-widest text-sm shadow-xl">
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.location.href = "/#book-visit";
+                }}
+                className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold tracking-widest text-sm shadow-xl"
+              >
                 SCHEDULE A VISIT
               </button>
-              <p className="text-center text-slate-400 mt-6 text-sm">Call us: 9220688266</p>
+              <a
+                href="tel:9220688266"
+                className="block text-center text-slate-400 mt-6 text-sm hover:text-slate-600 transition-colors"
+              >
+                Call us: 9220688266
+              </a>
             </motion.div>
           </motion.div>
         )}

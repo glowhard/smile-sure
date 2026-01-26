@@ -9,8 +9,6 @@ interface Testimonial {
   title: string;
   quote: string;
   author: string;
-  handle: string;
-  platform: 'Google' | 'Zocdoc' | 'Healthgrades' | 'Trustpilot';
   rating: number;
 }
 
@@ -21,198 +19,158 @@ const allTestimonials: Testimonial[] = [
     quote:
       "I have been visiting SmileSure for some time now. The doctors and staff are very polite and helpful. The clinic is clean and well maintained.",
     author: "Pooja Sharma",
-    handle: "@poojasharma",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 2,
-    title: "Highly Satisfied",
+    title: "Excellent Braces Treatment",
     quote:
-      "Mera braces treatment yahin se hua aur experience kaafi smooth raha. Doctor ne sab clearly explain kiya. Results se main kaafi happy hoon.",
+      "Mera braces treatment yahin se hua aur experience kaafi smooth raha. Dr. Shrestha ne sab clearly explain kiya. Results se main kaafi happy hoon.",
     author: "Amit Verma",
-    handle: "@amitverma",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 3,
     title: "Friendly and Professional",
     quote:
-      "From reception to the dentist, everyone was friendly and professional. They explained each step clearly and made me feel comfortable.",
+      "From reception to the dentist, everyone was friendly and professional. They explained each step clearly and made me feel comfortable throughout the visit.",
     author: "Rohit Mehta",
-    handle: "@rohitmehta",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 4,
     title: "Comfortable Experience",
     quote:
-      "Usually mujhe dental clinics se thoda fear lagta hai, but SmileSure ka experience kaafi comfortable raha. Doctors are calm and patient.",
+      "Usually mujhe dental clinics se thoda fear lagta hai, but SmileSure ka experience kaafi comfortable raha. Staff are calm and patient. Highly recommend.",
     author: "Simran Kaur",
-    handle: "@simrankaur",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 5,
-    title: "Good Overall Service",
+    title: "Smooth Appointment Process",
     quote:
-      "Appointment process was easy and waiting time was not too long. The treatment went smoothly. Overall a good experience.",
+      "Appointment scheduling was very easy through WhatsApp. Waiting time was minimal and the treatment went smoothly. Overall a very good experience.",
     author: "Rahul Malhotra",
-    handle: "@rahulmalhotra",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 6,
     title: "Great for Kids",
     quote:
-      "Mere child ka first dental visit yahin hua. Staff ne kaafi ache se handle kiya and made the experience stress-free.",
+      "Mere child ka first dental visit yahin hua. Staff ne kaafi ache se handle kiya aur child ko comfortable feel hua. Very patient with children.",
     author: "Anjali Singh",
-    handle: "@anjalisingh",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 7,
-    title: "Clean Clinic",
+    title: "Clean and Modern Clinic",
     quote:
-      "The clinic is very clean and well organized. Modern equipment and polite staff. Would definitely recommend.",
+      "The clinic in Sector 120 is very clean and well organized. Modern equipment and extremely polite staff. Would definitely recommend to neighbors.",
     author: "Sandeep Kumar",
-    handle: "@sandeepk",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 8,
-    title: "Good Doctor",
+    title: "Painless Treatment",
     quote:
-      "Doctor took time to explain the issue properly. Treatment was painless. Staff was also helpful.",
+      "Dr. Shrestha took time to explain the issue properly. Root canal treatment was completely painless. Staff was also very helpful and caring.",
     author: "Neha Gupta",
-    handle: "@nehagupta",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 9,
-    title: "Smooth Process",
+    title: "Well Managed Clinic",
     quote:
-      "Booking appointment was simple and follow-up was also good. Everything felt well managed.",
+      "Booking appointment was simple and follow-up reminders were sent on time. Everything felt well organized and professional.",
     author: "Karan Khanna",
-    handle: "@karank",
-    platform: "Google",
     rating: 4,
   },
   {
     id: 10,
-    title: "Satisfied with Treatment",
+    title: "Excellent Root Canal",
     quote:
-      "Root canal treatment went better than expected. Minimal pain and good post-treatment care.",
+      "Root canal treatment went much better than I expected. Minimal pain during and after the procedure. Post-treatment care instructions were very clear.",
     author: "Meenal Joshi",
-    handle: "@meenalj",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 11,
-    title: "Nice Experience",
+    title: "Caring Staff",
     quote:
-      "Staff ka behavior kaafi acha tha aur doctor bhi patiently sunte hain. Overall positive experience.",
+      "Staff ka behavior bahut acha tha aur doctor bhi patiently sunte hain. Saare doubts clear kiye without any rush. Overall positive experience.",
     author: "Vikas Arora",
-    handle: "@vikasarora",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 12,
     title: "Professional Setup",
     quote:
-      "Clinic looks modern and well maintained. The whole team is professional and courteous.",
+      "Clinic looks modern and well maintained near Amrapali Zodiac. The whole team is professional and courteous. Very satisfied with the service.",
     author: "Ritika Jain",
-    handle: "@ritikaj",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 13,
-    title: "Good Experience",
+    title: "Good Experience Overall",
     quote:
-      "Treatment was good and doctor explained everything clearly. Waiting time could be slightly better.",
+      "Treatment was good and doctor explained everything clearly beforehand. Only suggestion is waiting time could be slightly better on busy days.",
     author: "Deepak Bansal",
-    handle: "@deepakb",
-    platform: "Google",
     rating: 4,
   },
   {
     id: 14,
-    title: "Friendly Team",
+    title: "Cooperative Team",
     quote:
-      "Staff is very cooperative and polite. Felt comfortable throughout the visit.",
+      "Staff is very cooperative and polite. They make you feel comfortable from the moment you enter. Felt at ease throughout the visit.",
     author: "Priya Nair",
-    handle: "@priyanair",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 15,
-    title: "Happy with Results",
+    title: "Amazing Results",
     quote:
-      "Cosmetic treatment ke results kaafi ache aaye. Confidence bhi improve hua.",
+      "Cosmetic treatment ke results kaafi ache aaye. My smile looks much better now aur confidence bhi improve hua. Thank you SmileSure!",
     author: "Arjun Mehra",
-    handle: "@arjunmehra",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 16,
-    title: "Good Dental Clinic",
+    title: "Reliable Dental Care",
     quote:
-      "Overall experience achha raha. Doctors knowledgeable hain aur staff supportive hai.",
+      "Overall experience bahut achha raha. Doctors knowledgeable hain aur staff supportive hai. Prices are also reasonable for the quality of service.",
     author: "Kavita Saxena",
-    handle: "@kavitas",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 17,
-    title: "Reliable Clinic",
+    title: "Consistent Quality",
     quote:
-      "Been here multiple times and service has been consistent. Doctors explain things honestly.",
+      "Been here multiple times for different treatments and service has been consistently good. Doctors explain things honestly without unnecessary procedures.",
     author: "Mohit Aggarwal",
-    handle: "@mohita",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 18,
-    title: "Comfortable Treatment",
+    title: "Gentle Treatment",
     quote:
-      "Pain kaafi kam tha aur doctor ne continuously check kiya if I was comfortable.",
+      "Pain kaafi kam tha during the filling procedure. Doctor ne continuously check kiya if I was comfortable. Very gentle approach.",
     author: "Nisha Kulkarni",
-    handle: "@nishak",
-    platform: "Google",
     rating: 5,
   },
   {
     id: 19,
-    title: "Well Managed",
+    title: "Well Coordinated",
     quote:
-      "Clinic is well managed and staff coordination is good. Overall smooth experience.",
+      "Clinic is well managed and staff coordination is excellent. From registration to treatment, everything runs smoothly. Good experience overall.",
     author: "Alok Mishra",
-    handle: "@alokm",
-    platform: "Google",
     rating: 4,
   },
   {
     id: 20,
-    title: "Recommended",
+    title: "Highly Recommended",
     quote:
-      "Good doctors, polite staff and clean clinic. Would recommend SmileSure to others.",
+      "Good doctors, polite staff and clean clinic. Location in Sector 120 is also convenient. Would definitely recommend SmileSure to family and friends.",
     author: "Shweta Pandey",
-    handle: "@shwetap",
-    platform: "Google",
     rating: 5,
   },
 ];
@@ -224,25 +182,24 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
     whileHover={{ y: -8, scale: 1.02 }}
     transition={{ duration: 0.4 }}
   >
-    <div className="flex items-center justify-between mb-4 sm:mb-6">
-      <div className="flex gap-0.5 sm:gap-1">
-        {[...Array(5)].map((_, i) => (
-          <svg key={i} className={`w-4 h-4 sm:w-5 sm:h-5 ${i < testimonial.rating ? 'text-primary' : 'text-slate-200'}`} fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        ))}
-      </div>
-      <div className="px-3 py-1 sm:px-4 sm:py-1.5 bg-white rounded-full border border-slate-50 text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-slate-400">
-        {testimonial.platform}
-      </div>
+    <div className="flex gap-0.5 sm:gap-1 mb-4 sm:mb-6">
+      {[...Array(5)].map((_, i) => (
+        <svg key={i} className={`w-4 h-4 sm:w-5 sm:h-5 ${i < testimonial.rating ? 'text-primary' : 'text-slate-200'}`} fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
     </div>
     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 leading-tight">{testimonial.title}</h3>
     <p className="text-sm sm:text-base lg:text-lg text-slate-500 font-medium leading-relaxed mb-6 sm:mb-8 italic">&quot;{testimonial.quote}&quot;</p>
     <div className="flex items-center gap-3 sm:gap-4 mt-auto">
-      {/* <img src={testimonial.image} alt={testimonial.author} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm" /> */}
+      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border-2 border-white shadow-sm flex-shrink-0">
+        <span className="text-sm sm:text-base font-bold text-primary">
+          {testimonial.author.charAt(0)}
+        </span>
+      </div>
       <div>
         <h4 className="text-xs sm:text-sm lg:text-base font-black text-slate-900 uppercase tracking-tighter leading-none">{testimonial.author}</h4>
-        <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider sm:tracking-widest mt-1 sm:mt-1.5">{testimonial.handle}</p>
+        <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider sm:tracking-widest mt-1 sm:mt-1.5">Patient Review</p>
       </div>
     </div>
   </motion.div>
@@ -303,7 +260,7 @@ const Testimonials = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-base sm:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-4"
           >
-            Leveraging artificial intelligence and precision medical engineering to provide users <br className="hidden md:block" /> with valuable insights, painless treatments, and better aesthetic outcomes.
+            Real experiences from our valued patients. Discover why families in Noida <br className="hidden md:block" /> trust SmileSure for their dental care needs.
           </motion.p>
         </div>
 
@@ -316,21 +273,21 @@ const Testimonials = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Column 1 */}
             <VerticalColumn
-              items={allTestimonials.slice(0, 3)}
-              speed={25}
+              items={allTestimonials.slice(0, 7)}
+              speed={30}
               reverse={true}
             />
             {/* Column 2 */}
             <VerticalColumn
-              items={allTestimonials.slice(3, 6)}
-              speed={35}
+              items={allTestimonials.slice(7, 14)}
+              speed={40}
               reverse={false}
             />
             {/* Column 3 */}
             <div className="hidden md:block">
               <VerticalColumn
-                items={allTestimonials.slice(6, 9)}
-                speed={30}
+                items={allTestimonials.slice(14, 20)}
+                speed={35}
                 reverse={true}
               />
             </div>
@@ -338,18 +295,38 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Section Bottom */}
-        <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 pt-12 sm:pt-16 lg:pt-20 border-t border-slate-50 flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 text-center px-4">
-          <div>
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">4.5/5</p>
-            <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Average Rating</p>
+        <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 pt-12 sm:pt-16 lg:pt-20 border-t border-slate-50">
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 text-center px-4 mb-10 sm:mb-12">
+            <div>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">4.8/5</p>
+              <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Google Rating</p>
+            </div>
+            <div>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">2,500+</p>
+              <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Happy Patients</p>
+            </div>
+            <div>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">10+</p>
+              <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Years Experience</p>
+            </div>
           </div>
-          <div>
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">4k+</p>
-            <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Happy Patients</p>
-          </div>
-          <div>
-            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">99%</p>
-            <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Success Rate</p>
+
+          {/* CTA to Google Reviews */}
+          <div className="text-center">
+            <a
+              href="https://maps.app.goo.gl/anE6woKbe4bRXHZx7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-bold text-sm sm:text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              View All Google Reviews
+            </a>
           </div>
         </div>
       </div>

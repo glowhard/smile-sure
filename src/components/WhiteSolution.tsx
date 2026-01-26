@@ -35,16 +35,16 @@ const SECOND_IMAGE = {
 const features = [
   {
     title: 'In-Office Professional Whitening',
-    description: 'Our whitening treatment combines advanced technology, expert techniques, and quality products to deliver results.',
+    description: 'Get dramatic results in just one visit with our advanced chairside whitening treatment. Safe, fast, and supervised by dental professionals for optimal outcomes.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     )
   },
   {
     title: 'Take-Home Whitening Kits',
-    description: 'With custom trays and professional-grade gel, you can whiten your smile comfortably at your own pace from home.',
+    description: 'Custom-fitted trays with professional-grade whitening gel for gradual, convenient whitening at home. Achieve your desired shade at your own pace with expert guidance.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -52,8 +52,8 @@ const features = [
     )
   },
   {
-    title: 'Stain Removal and Polishing',
-    description: 'Our cleaning and polishing treatments eliminate stains from food, drinks, and smoking, bringing back your teeth\'s natural shine.',
+    title: 'Stain Removal & Polishing',
+    description: 'Professional scaling and polishing to remove surface stains from coffee, tea, wine, and tobacco. Restore your teeth\'s natural brightness with our deep cleaning treatments.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
@@ -81,12 +81,54 @@ const WhiteSolution = () => (
             We offer effective teeth <br className="hidden sm:block" /> whitening solutions.
           </h2>
           <p className="text-base sm:text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto px-4">
-            Whether you&apos;re looking to enhance your smile for a special occasion or simply want to improve your everyday appearance.
+            Professional teeth whitening treatments at SmileSure help you achieve noticeable results safely and effectively. Perfect for special occasions or boosting your everyday confidence.
           </p>
         </div>
 
+        {/* Before/After Slider - MOVED UP */}
+        <div className="mb-12 sm:mb-16 md:mb-24">
+          {/* Drag Instruction */}
+          <motion.p
+            className="text-center text-sm sm:text-base text-slate-400 font-semibold mb-6 sm:mb-8 flex items-center justify-center gap-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            </svg>
+            Drag to compare results
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </motion.p>
+
+          <motion.div
+            className="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl md:rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group px-4"
+            whileHover={{ y: -8, scale: 1.02 }}
+            transition={{ duration: 0.4 }}
+          >
+            {/* Before Label */}
+            <div className="absolute top-4 left-8 sm:left-12 z-10 bg-slate-900/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider">
+              Before
+            </div>
+
+            {/* After Label */}
+            <div className="absolute top-4 right-8 sm:right-12 z-10 bg-primary/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider">
+              After
+            </div>
+
+            <ReactBeforeSliderComponent
+              firstImage={FIRST_IMAGE}
+              secondImage={SECOND_IMAGE}
+              className="rounded-2xl sm:rounded-3xl md:rounded-[48px] w-full h-auto object-contain"
+            />
+          </motion.div>
+        </div>
+
         {/* Features Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16 md:mb-20">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -112,22 +154,14 @@ const WhiteSolution = () => (
         </div>
 
         {/* Action Button */}
-        <div className="flex justify-center mb-12 sm:mb-16 md:mb-24 px-4">
-          <AppButton title='Make Your Teeth Whiter' />
-        </div>
-
-        {/* Before/After Slider */}
-        <motion.div 
-          className="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl md:rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group px-4"
-          whileHover={{ y: -8, scale: 1.02 }}
-          transition={{ duration: 0.4 }}
-        >
-          <ReactBeforeSliderComponent
-            firstImage={FIRST_IMAGE}
-            secondImage={SECOND_IMAGE}
-            className="rounded-2xl sm:rounded-3xl md:rounded-[48px] w-full h-auto object-contain"
+        <div className="flex justify-center px-4">
+          <AppButton
+            title='Book Whitening Treatment'
+            onTap={() => {
+              window.location.href = "/#book-visit"
+            }}
           />
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   </section>

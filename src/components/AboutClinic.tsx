@@ -80,7 +80,7 @@ const AboutClinic = () => {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 tracking-tighter leading-[1.1] sm:leading-tight"
             variants={itemVariants}
           >
-            Dental is a modern practice dedicated to exceptional care in a welcoming environment.
+            SmileSure Dental Care brings expert orthodontic treatment to the heart of Noida.
           </motion.h2>
 
           {/* Subtext */}
@@ -88,8 +88,7 @@ const AboutClinic = () => {
             className="text-sm sm:text-base md:text-lg xl:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl"
             variants={itemVariants}
           >
-            Our clinic is equipped with the latest technology and staffed by highly trained
-            professionals who prioritize your comfort and well-being.
+            Located in Sector 120, our clinic is led by Dr. Shrestha Singh (BDS, MDS - Orthodontist) with over 10 years of experience. We combine advanced technology with personalized care to deliver exceptional results for every patient.
           </motion.p>
 
           {/* Features */}
@@ -107,11 +106,10 @@ const AboutClinic = () => {
 
               <div className="flex-1">
                 <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
-                  Patient-Centered Care
+                  Specialized Orthodontic Expertise
                 </h3>
                 <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
-                  We prioritize the well-being and comfort of our patients, offering personalized
-                  treatments and a supportive environment to make every visit a positive experience.
+                  As a dedicated orthodontist with MDS credentials, Dr. Shrestha Singh specializes in braces, aligners, and comprehensive smile correction treatments. Every case receives expert attention and personalized care tailored to your unique needs.
                 </p>
               </div>
             </motion.div>
@@ -126,21 +124,27 @@ const AboutClinic = () => {
 
               <div className="flex-1">
                 <h3 className="text-base sm:text-lg md:text-xl xl:text-2xl font-bold text-primary mb-2 sm:mb-3 group-hover:text-primary/80 transition-colors duration-300">
-                  Advanced Treatments
+                  Trusted by 2,500+ Patients in Noida
                 </h3>
                 <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
-                  We are dedicated to providing the highest standard of dental care using advanced
-                  techniques and state-of-the-art technology, ensuring optimal results for our patients.
+                  With a 4.8/5 Google rating and over a decade of experience serving families in Noida, we've built our reputation on delivering consistent results, transparent communication, and compassionate care at every visit.
                 </p>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
+            className="flex flex-col sm:flex-row gap-4"
             variants={itemVariants}
           >
-            <AppButton title='About our Clinic' onTap={() => router.push("/about")} />
+            <AppButton title='About Us' onTap={() => router.push("/about")} />
+            <button
+              onClick={() => window.location.href = "/#meet-doctor"}
+              className="px-8 py-4 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+            >
+              Meet Dr. Shrestha Singh
+            </button>
           </motion.div>
         </motion.div>
 

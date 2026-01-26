@@ -1,9 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/src/components/navbar";
 import Footer from "@/src/components/footer";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#6b4a2f",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://smilesure.in"),
@@ -28,7 +32,6 @@ export const metadata: Metadata = {
     "kids dentist",
   ],
   robots: { index: true, follow: true },
-  themeColor: "#6b4a2f",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

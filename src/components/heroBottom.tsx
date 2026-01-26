@@ -3,21 +3,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const HeroBottom = () => {
   const router = useRouter()
 
   const services = [
-    { label: "Ortho Braces", href: "/services" },
-    { label: "Root Canal Treatment", href: "/services" },
-    { label: "Crowns & Bridges", href: "#" },
-    { label: "Dentures", href: "/services" },
-    { label: "Tooth Extraction", href: "/services" },
+    { label: "Ortho Braces", href: "/services#ortho-braces" },
+    { label: "Root Canal Treatment", href: "/services#root-canal-treatment" },
+    { label: "Crowns & Bridges", href: "/services#crowns-bridges" },
+    { label: "Dentures", href: "/services#dentures" },
+    { label: "Tooth Extraction", href: "/services#tooth-extraction" },
   ];
 
-  const title = 'Services';
+  const title = 'Our Services';
   const copy =
-    'We offer a comprehensive range of dental services designed to meet the needs of every patient.';
+    'From orthodontics to general dentistry, we offer comprehensive treatments designed to give you a healthy, confident smile.';
   const img =
     'https://framerusercontent.com/images/dWARlvTfJvZGsuaCnPbV2hIzCRs.png';
 
@@ -62,9 +63,9 @@ const HeroBottom = () => {
         <section className='h-[40px] sm:h-[50px] md:h-[70px] min-h-[40px] sm:min-h-[50px] md:min-h-[70px] bg-transparent'></section>
         <section
           aria-labelledby="services-title"
-          className="rounded-2xl sm:rounded-3xl bg-secondary p-4 sm:p-6 md:p-8 lg:p-10 flex-1"
+          className="rounded-2xl sm:rounded-3xl bg-secondary p-6 sm:p-7 md:p-8 lg:p-9 flex-1"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-6 sm:gap-y-8 md:gap-y-10 gap-x-6 md:gap-x-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-5 sm:gap-y-6 md:gap-y-7 gap-x-6 md:gap-x-12">
 
             {/* LEFT – Headline */}
             <div className="lg:col-span-2">
@@ -72,32 +73,37 @@ const HeroBottom = () => {
                 id="services-title"
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight tracking-tight text-slate-900 max-w-md"
               >
-                We provide expert dental care tailored to your needs.
+                Expert dental care tailored to your needs.
               </h2>
             </div>
 
-            {/* RIGHT – Why Dental */}
+            {/* RIGHT – Why Choose Us */}
             <div className="lg:col-span-2">
               <div className="flex flex-col items-start justify-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900">
-                  Why Dental?
+                  Why Choose SmileSure?
                 </h3>
 
-                {/* Avatars */}
-                <div className="hidden sm:flex -space-x-2">
+                {/* Avatars - Happy Patients */}
+                <div className="hidden sm:flex -space-x-4">
                   {[
-                    'https://framerusercontent.com/images/zyLihMsmSSdiL5g5jHJn4e6zQ.jpg',
-                    'https://framerusercontent.com/images/0YT123QRbremRM1AgxCueBx7IRY.jpg',
-                    'https://framerusercontent.com/images/yWUGDZMAYtE216zWWnYBZ0LBoRo.jpg',
-                    'https://framerusercontent.com/images/BcSdxaffL9NSUbnZMFbwTXGgdcc.jpg',
-                    'https://framerusercontent.com/images/puGp4Hi5DUcsbLLVVYEhrdP1lg.jpg',
-                  ].map((src, i) => (
-                    <img
+                    'person-1.png',
+                    'person-2.png',
+                    'person-3.png',
+                    'person-4.png',
+                    'person-5.png',
+                  ].map((filename, i) => (
+                    <div
                       key={i}
-                      src={src}
-                      alt=""
-                      className="h-8 w-8 rounded-full border-2 border-white object-cover"
-                    />
+                      className="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-4 border-white shadow-xl ring-2 ring-primary/20 overflow-hidden bg-gray-100"
+                    >
+                      <img
+                        src={`/assets/indi-person/${filename}`}
+                        alt={`Happy patient ${i + 1}`}
+                        className="w-full h-full object-cover scale-150"
+                        style={{ objectPosition: 'center 30%' }}
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -108,13 +114,15 @@ const HeroBottom = () => {
               <ul className="flex flex-wrap gap-2 sm:gap-3 max-w-md">
                 {services.map((s) => (
                   <li key={s.label}>
-                    <motion.span
-                      className="inline-flex items-center rounded-full border-2 border-primary px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
-                      whileHover={{ y: -2, scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {s.label}
-                    </motion.span>
+                    <Link href={s.href}>
+                      <motion.span
+                        className="inline-flex items-center rounded-full border-2 border-primary px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
+                        whileHover={{ y: -2, scale: 1.05 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {s.label}
+                      </motion.span>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -123,9 +131,7 @@ const HeroBottom = () => {
             {/* RIGHT – Empty spacer (keeps alignment clean like image) */}
             <div className="hidden lg:block lg:col-span-2">
               <p className="text-base leading-7 text-slate-600 max-w-md">
-                Whether you&apos;re visiting for a routine check-up or a more advanced
-                procedure, we ensure your oral health is in the best hands,
-                helping you achieve a confident, healthy smile.
+                With over 10 years of experience and 2,500+ happy patients in Noida, Dr. Shrestha Singh and our expert team provide personalized care using state-of-the-art technology for your perfect smile.
               </p>
             </div>
           </div>
@@ -226,44 +232,28 @@ const HeroBottom = () => {
             </motion.div>
           </div>
 
-          <div className="absolute right-0 bottom-0 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-tl-2xl sm:rounded-tl-[32px] overflow-visible">
-
-            {/* Left cut */}
-            <div className="absolute -left-6 sm:-left-8 bottom-0 w-6 h-6 sm:w-8 sm:h-8 bg-transparent rounded-br-2xl sm:rounded-br-[32px] shadow-[12px_12px_0_12px_white] sm:shadow-[16px_16px_0_16px_white]" />
-
-            {/* Top cut */}
-            <div className="absolute right-0 -top-6 sm:-top-8 w-6 h-6 sm:w-8 sm:h-8 bg-transparent rounded-br-2xl sm:rounded-br-[32px] shadow-[12px_12px_0_12px_white] sm:shadow-[16px_16px_0_16px_white]" />
-
-            {/* Arrow circle */}
+          {/* Arrow button - bottom right */}
+          <motion.div
+            className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6"
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.4 }}
+            viewport={{ once: true }}
+          >
             <motion.div
-              className="absolute inset-0 flex items-center justify-center"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4, ease: 'easeOut', delay: 0.4 }}
-              whileHover="hover"
-              viewport={{ once: true }}
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center text-white text-xl sm:text-2xl shadow-lg cursor-pointer"
+              whileHover={{
+                scale: 1.15,
+                backgroundColor: "#fff",
+                color: "#6e4e24",
+                transition: { duration: 0.25, ease: "easeOut" }
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
-              <motion.div
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-white text-lg sm:text-xl shadow-md cursor-pointer"
-                variants={{
-                  initial: { scale: 1, backgroundColor: "#6e4e24", color: "#fff" },
-                  hover: {
-                    scale: 1.15,
-                    backgroundColor: "#fff",
-                    color: "#6e4e24",
-                    transition: { duration: 0.25, ease: "easeOut" }
-                  }
-                }}
-                initial="initial"
-                whileHover="hover"
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              >
-                →
-              </motion.div>
+              →
             </motion.div>
-
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.section>

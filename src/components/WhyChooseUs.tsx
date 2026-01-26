@@ -18,33 +18,33 @@ const fadeUpVariant = {
 const reasons = [
   {
     icon: Award,
-    title: 'Expert Care',
-    description: 'Led by Dr. Shrestha Singh (BDS, MDS), a qualified orthodontist with years of experience in dental care.'
+    title: '10+ Years Expert Care',
+    description: 'Led by Dr. Shrestha Singh (BDS, MDS - Orthodontist), a qualified specialist with over a decade of experience delivering exceptional dental care in Noida.'
   },
   {
     icon: Sparkles,
     title: 'Modern Technology',
-    description: 'State-of-the-art equipment including digital X-rays and advanced treatment tools for precise care.'
+    description: 'State-of-the-art equipment including digital X-rays, rotary endodontics, and advanced orthodontic tools for precise, comfortable treatments.'
   },
   {
     icon: Heart,
-    title: 'Patient-Centered',
-    description: 'We prioritize your comfort and well-being, offering personalized treatments in a welcoming environment.'
+    title: '2,500+ Happy Patients',
+    description: 'Join our growing family of satisfied patients who trust us with their smiles. Rated 4.8/5 on Google for personalized care and exceptional results.'
   },
   {
     icon: Clock,
     title: 'Flexible Hours',
-    description: 'Convenient scheduling with extended hours to accommodate your busy lifestyle.'
+    description: 'Open Mon-Sat with convenient morning and evening slots (10:30am-1:30pm, 3:30pm-8pm). Sunday appointments available on request.'
   },
   {
     icon: Shield,
     title: 'Safety First',
-    description: 'Strict hygiene protocols and sterilization standards to ensure your safety at every visit.'
+    description: 'Strict hygiene protocols with proper sterilization, disposable materials, and infection control measures following international standards.'
   },
   {
     icon: Users,
     title: 'Family Friendly',
-    description: 'Comprehensive dental care for all ages, from children to seniors, in a comfortable setting.'
+    description: 'Comprehensive dental care for all ages in Sector 120, Noida. From children\'s dentistry to senior care, we serve the entire family with gentle expertise.'
   }
 ];
 
