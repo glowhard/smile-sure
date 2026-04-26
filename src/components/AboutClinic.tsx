@@ -91,7 +91,7 @@ const AboutClinic = () => {
                   Trusted by 2,500+ Patients in Noida
                 </h3>
                 <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
-                  With a 4.8/5 Google rating and over a decade of experience serving families in Noida, we've built our reputation on delivering consistent results, transparent communication, and compassionate care at every visit.
+                  With a 4.8/5 Google rating and over a decade of experience serving families in Noida, we&apos;ve built our reputation on delivering consistent results, transparent communication, and compassionate care at every visit.
                 </p>
               </div>
             </motion.div>
@@ -131,7 +131,7 @@ const AboutClinic = () => {
           >
             <video
               src="https://framerusercontent.com/assets/QIxj4M3Ku5fa6SWTZWqzNoDt1A.mp4"
-              poster="https://framerusercontent.com/images/F8S4eX96Pul5uYP4Yc6E8GH3aM.jpg"
+              poster="/images/about-video-poster.jpg"
               autoPlay
               loop
               muted

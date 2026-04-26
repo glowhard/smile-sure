@@ -1,13 +1,16 @@
 import nodemailer from "nodemailer";
 
+const host = process.env.EMAIL_HOST;
+const user = process.env.EMAIL_USER;
+const pass = process.env.EMAIL_PASS;
+const port = Number(process.env.EMAIL_PORT || 587);
+const secure = process.env.EMAIL_SECURE === "true";
+
 const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: Number(process.env.EMAIL_PORT || 587),
-    secure: process.env.EMAIL_SECURE === "true",
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
+    host,
+    port,
+    secure,
+    auth: user && pass ? { user, pass } : undefined,
 });
 
 export const sendEmail = async ({
@@ -19,8 +22,14 @@ export const sendEmail = async ({
     subject: string;
     html: string;
 }) => {
+    if (!host || !user || !pass) {
+        throw new Error(
+            "Email transport not configured: missing EMAIL_HOST, EMAIL_USER, or EMAIL_PASS"
+        );
+    }
+
     await transporter.sendMail({
-        from: `"Smile Sure Dental Care" <${process.env.EMAIL_USER}>`,
+        from: `"Smile Sure Dental Care" <${user}>`,
         to,
         subject,
         html,

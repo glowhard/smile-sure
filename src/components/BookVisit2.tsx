@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AppButton from "./AppButton";
 import { PhoneOutgoing, CheckCircle2 } from "lucide-react";
@@ -95,10 +96,14 @@ const BookVisit2 = () => {
             >
               {/* Image container with enhanced border */}
               <div className="relative p-2 bg-gradient-to-br from-primary/20 via-secondary/10 to-white rounded-3xl sm:rounded-[2rem] shadow-2xl">
-                <img
+                <Image
                   src="/assets/doctor.jpeg"
                   alt="Dr. Shrestha Singh - Professional Orthodontist"
-                  className="rounded-2xl sm:rounded-3xl w-full h-auto max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-none lg:h-full object-cover"
+                  width={800}
+                  height={1000}
+                  sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 400px"
+                  quality={95}
+                  className="rounded-2xl sm:rounded-3xl w-full h-auto max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-none object-cover"
                 />
 
                 {/* Decorative frame */}
@@ -197,7 +202,7 @@ const BookVisit2 = () => {
               className="text-slate-500 mb-6 sm:mb-8 text-base sm:text-lg lg:text-xl font-medium leading-relaxed"
               variants={itemVariants}
             >
-              Experience world-class dental care with Dr. Shrestha Singh and our dedicated team. From routine check-ups to advanced orthodontic treatments, we're committed to your oral health journey.
+              Experience world-class dental care with Dr. Shrestha Singh and our dedicated team. From routine check-ups to advanced orthodontic treatments, we&apos;re committed to your oral health journey.
             </motion.p>
 
             <AppButton title="Book Your Appointment" onTap={() => {

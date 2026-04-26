@@ -27,7 +27,7 @@ export function useContactEmail() {
         }
 
         setToast({ type: "success", message: "Thank you! We will connect with you within 24 hours." });
-      } catch (error) {
+      } catch {
         setToast({
           type: "error",
           message: "Unable to send message. Please try again.",

@@ -13,7 +13,6 @@ import { Menu, X } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('HOME');
 
   const pathname = usePathname();
 
@@ -90,7 +89,6 @@ const Navbar: React.FC = () => {
                   <Link
                     key={link.label}
                     href={link.href}
-                    onClick={() => setActiveLink(link.label)}
                     className={`relative z-10 px-4 py-1.5 rounded-full text-sm tracking-wider cursor-pointer block`}
                   >
                     {/* Animated background chip */}

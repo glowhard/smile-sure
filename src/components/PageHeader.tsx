@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { fadeUpVariant } from '@/src/constants/animations';
 
@@ -36,10 +37,14 @@ const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderPr
             className="absolute inset-0"
             style={{ y }}
           >
-            <img
+            <Image
               src={backgroundImage}
               alt={`${label} - ${title}`}
-              className="w-full h-full object-cover scale-[1.1] sm:scale-[1.12] md:scale-[1.15]"
+              fill
+              priority
+              sizes="100vw"
+              quality={95}
+              className="object-cover scale-[1.1] sm:scale-[1.12] md:scale-[1.15]"
               draggable={false}
             />
           </motion.div>
@@ -49,7 +54,7 @@ const PageHeader = ({ label, title, description, backgroundImage }: PageHeaderPr
       ) : (
         <>
           {/* Enhanced, more colorful layered gradients for better visual appeal */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/70 via-60% to-accent/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/70 via-60% to-primary/80" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 via-60% to-transparent" />
           <div className="absolute inset-0 bg-gradient-radial from-primary/70 via-transparent to-transparent opacity-60" />
         </>

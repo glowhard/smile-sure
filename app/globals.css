@@ -29,9 +29,8 @@
 }
 
 body {
-  /* background: var(--background);
-  color: var(--foreground); */
-  font-family: sans-serif;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 
@@ -72,35 +71,9 @@ body {
 }
 
 
-/* Notch Card */
-.notch-card {
-  position: relative;
-}
-
-.notch-card::before,
-.notch-card::after {
-  content: "";
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  background: transparent;
-}
-
-/* left cut */
-.notch-card::before {
-  left: -32px;
-  bottom: 0;
-  border-bottom-right-radius: 32px;
-  box-shadow: 16px 16px 0 16px white;
-}
-
-/* top cut */
-.notch-card::after {
-  right: 0;
-  top: -32px;
-  border-bottom-right-radius: 32px;
-  box-shadow: 16px 16px 0 16px white;
-}
+/* Concave corner notch — carves a quarter-circle cutout from a card corner
+ * using CSS mask. Override --notch-size to control the cutout radius.
+ */
 
 /* Book visit background: allow parallax only on larger screens to avoid mobile jank */
 .bg-book-visit {

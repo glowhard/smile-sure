@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -20,8 +21,7 @@ const HeroBottom = () => {
   const title = 'Our Services';
   const copy =
     'From orthodontics to general dentistry, we offer comprehensive treatments designed to give you a healthy, confident smile.';
-  const img =
-    'https://framerusercontent.com/images/dWARlvTfJvZGsuaCnPbV2hIzCRs.png';
+  const img = '/images/hero-services.png';
 
   return (
     <motion.section
@@ -71,12 +71,15 @@ const HeroBottom = () => {
                   ].map((filename, i) => (
                     <div
                       key={i}
-                      className="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-4 border-white shadow-xl ring-2 ring-primary/20 overflow-hidden bg-gray-100"
+                      className="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-4 border-white shadow-xl ring-2 ring-primary/20 overflow-hidden bg-gray-100 relative"
                     >
-                      <img
+                      <Image
                         src={`/assets/indi-person/${filename}`}
                         alt={`Happy patient ${i + 1}`}
-                        className="w-full h-full object-cover scale-150"
+                        fill
+                        sizes="160px"
+                        quality={100}
+                        className="object-cover scale-150"
                         style={{ objectPosition: 'center 30%' }}
                       />
                     </div>
@@ -116,11 +119,11 @@ const HeroBottom = () => {
 
       {/* Right Section - Services Card */}
       <motion.div
-        className="w-full lg:w-1/3 flex flex-col min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-full lg:h-full relative"
+        className="w-full lg:w-1/3 flex flex-col min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[500px] xl:min-h-[560px] relative"
         variants={itemVariants}
       >
         <motion.div
-          className="group w-full h-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-full overflow-hidden rounded-2xl sm:rounded-[28px] flex flex-col relative shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
+          className="group w-full h-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[500px] xl:min-h-[560px] flex flex-col relative"
           whileHover={{
             scale: 1.02,
             y: -8,
@@ -128,25 +131,31 @@ const HeroBottom = () => {
           }}
           whileTap={{ scale: 0.98 }}
         >
-          {/* Photo */}
-          <motion.div
-            className="flex-1 relative overflow-hidden h-full"
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.6, ease: 'easeOut' }
-            }}
-          >
-            <img
-              src={img}
-              alt="Dental services showcase"
-              className="w-full h-full object-cover"
-            />
-            {/* Enhanced gradient overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
-          </motion.div>
+          {/* Card body */}
+          <div className="w-full h-full overflow-hidden rounded-2xl sm:rounded-[28px] relative shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
+            {/* Photo */}
+            <motion.div
+              className="absolute inset-0"
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.6, ease: 'easeOut' }
+              }}
+            >
+              <Image
+                src={img}
+                alt="Dental services showcase"
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                quality={95}
+                className="object-cover"
+              />
+              {/* Enhanced gradient overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
+            </motion.div>
+          </div>
 
-          {/* Content Container */}
+          {/* Content Container — sits above the masked card, unaffected by notch */}
           <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8 cursor-pointer" onClick={() => {
             router.push('/services')
           }}>
@@ -208,7 +217,7 @@ const HeroBottom = () => {
             </motion.div>
           </div>
 
-          {/* Arrow button - bottom right */}
+          {/* Arrow button — bottom right */}
           <motion.div
             className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -217,11 +226,11 @@ const HeroBottom = () => {
             viewport={{ once: true }}
           >
             <motion.div
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center text-white text-xl sm:text-2xl shadow-lg cursor-pointer"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-primary text-xl sm:text-2xl shadow-lg cursor-pointer"
               whileHover={{
-                scale: 1.15,
-                backgroundColor: "#fff",
-                color: "#6e4e24",
+                scale: 1.1,
+                backgroundColor: "#6e4e24",
+                color: "#fff",
                 transition: { duration: 0.25, ease: "easeOut" }
               }}
               whileTap={{ scale: 0.95 }}

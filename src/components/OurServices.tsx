@@ -173,10 +173,6 @@ const OurServices = () => {
               src="/assets/teeth-character.png"
               alt="Cute tooth character mascot"
               className="w-full h-auto object-contain scale-[1.5]"
-              initial={{ y: 50, opacity: 0, rotate: 15 }}
-              whileInView={{ y: 0, opacity: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 140, damping: 10 }}
-              viewport={{ once: true }}
               animate={{
                 y: [0, -15, 0],
                 rotate: [0, -3, 0, 3, 0],
@@ -185,7 +181,6 @@ const OurServices = () => {
                 duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
-                times: [0, 0.5, 1]
               }}
             />
           </motion.div>

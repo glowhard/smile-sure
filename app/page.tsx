@@ -4,7 +4,7 @@ import BookVisit2 from '@/src/components/BookVisit2';
 import Hero from '@/src/components/hero';
 import HeroBottom from '@/src/components/heroBottom';
 import OurServices from '@/src/components/OurServices';
-import Testimonials from '@/src/components/Testimonails';
+import Testimonials from '@/src/components/Testimonials';
 import WhiteSolution from '@/src/components/WhiteSolution';
 
 export default function Home() {

@@ -9,7 +9,10 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
   const pathname = usePathname();
 
-  const sections = [
+  type FooterLink = { label: string; href: string; target?: string };
+  type FooterSection = { title: string; links: FooterLink[] };
+
+  const sections: FooterSection[] = [
     {
       title: "Company",
       links: [

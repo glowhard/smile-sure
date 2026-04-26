@@ -1,4 +1,4 @@
-import Testimonials from '@/src/components/Testimonails';
+import Testimonials from '@/src/components/Testimonials';
 import BookVisit from '@/src/components/BookVisit';
 import ClinicGallery from '@/src/components/ClinicGallery';
 import PageHeader from '@/src/components/PageHeader';

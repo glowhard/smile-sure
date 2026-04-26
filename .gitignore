@@ -40,5 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# shared assets (personal/archived files)
-/public/shared/
+# archived/unused assets kept locally but not shipped
+/dumps/
+
+# playwright debug artifacts
+/.playwright-mcp/
