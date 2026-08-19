@@ -51,3 +51,6 @@ next-env.d.ts
 
 # local docs (audits, notes)
 .local-docs/
+
+# plans and documentation
+docs/
