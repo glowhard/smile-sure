@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     "kids dentist",
   ],
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_IN",
