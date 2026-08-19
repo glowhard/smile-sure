@@ -3,7 +3,7 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   turbopack: {
-    root: path.join(__dirname),
+    root: path.resolve(__dirname, "../../../"),
   },
   images: {
     qualities: [75, 85, 95, 100],
@@ -23,6 +23,19 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https:",
+              "font-src 'self'",
+              "connect-src 'self' https://www.google-analytics.com https://challenges.cloudflare.com",
+              "frame-src https://challenges.cloudflare.com",
+              "media-src 'self'",
+            ].join("; "),
+          },
         ],
       },
     ];
