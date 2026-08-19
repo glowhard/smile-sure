@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
-import Script from "next/script";
 import Navbar from "@/src/components/navbar";
 import Footer from "@/src/components/footer";
 import "./globals.css";
@@ -80,11 +79,13 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dentist",
+    "@id": "https://smilesure.in/#dentist",
     name: "SmileSure Dental Care",
     url: "https://smilesure.in/",
     image: "https://smilesure.in/images/smilesure-og.jpg",
     telephone: "+91-9220688266",
-    priceRange: "₹₹",
+    email: "care@smilesure.in",
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Shop No. 1, Market Complex, Amrapali Zodiac, Sec-120",
@@ -93,6 +94,16 @@ export default function RootLayout({
       postalCode: "201301",
       addressCountry: "IN",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 28.5855,
+      longitude: 77.391,
+    },
+    hasMap: "https://maps.app.goo.gl/anE6woKbe4bRXHZx7",
+    sameAs: [
+      "https://www.instagram.com/smilesure20",
+      "https://www.facebook.com/SmileSuredc/",
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -121,13 +132,17 @@ export default function RootLayout({
         closes: "20:00",
       },
     ],
-    areaServed: "Noida",
+    areaServed: {
+      "@type": "City",
+      name: "Noida",
+    },
     founder: {
       "@type": "Person",
       name: "Dr. Shrestha Singh",
       jobTitle: "Orthodontist (Braces Specialist)",
       honorificSuffix: "BDS, MDS",
     },
+    medicalSpecialty: "Orthodontics",
   };
 
   return (
@@ -136,9 +151,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        {/* Local Business Schema */}
-        <Script
-          id="smilesure-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
