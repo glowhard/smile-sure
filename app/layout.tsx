@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
+import { Roboto } from "next/font/google";
 import Script from "next/script";
 import Navbar from "@/src/components/navbar";
 import Footer from "@/src/components/footer";
 import "./globals.css";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  display: "swap",
+  variable: "--font-roboto",
+});
 
 export const viewport: Viewport = {
   themeColor: "#6b4a2f",
@@ -123,7 +131,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.variable}>
       <body>
         <Navbar />
         {children}
