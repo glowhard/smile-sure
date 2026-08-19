@@ -103,40 +103,63 @@ const BookVisit = () => {
                 onSubmit={handleSubmit}
                 className="flex flex-col lg:flex-row items-stretch gap-2.5 sm:gap-3 md:gap-4"
               >
-                <motion.input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name*"
-                  className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-400 hover:border-gray-300"
-                  required
-                  minLength={2}
-                />
-                <motion.input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address*"
-                  className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-400 hover:border-gray-300"
-                  required
-                />
-                <motion.input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number*"
-                  pattern="[0-9]{10}"
-                  title="Please enter a valid 10-digit phone number"
-                  className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-400 hover:border-gray-300"
-                  required
-                  maxLength={10}
-                />
-                <motion.input
-                  type="date"
-                  name="date"
-                  min={today}
-                  placeholder="Preferred Date*"
-                  style={{
-                    colorScheme: 'light'
-                  }}
-                  className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base hover:border-gray-300 cursor-pointer
+                <div className="flex-1">
+                  <label htmlFor="booking-name" className="sr-only">Full Name</label>
+                  <motion.input
+                    id="booking-name"
+                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    placeholder="Full Name*"
+                    aria-required="true"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-400 hover:border-gray-300"
+                    required
+                    minLength={2}
+                  />
+                </div>
+                <div className="flex-1">
+                  <label htmlFor="booking-email" className="sr-only">Email Address</label>
+                  <motion.input
+                    id="booking-email"
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    placeholder="Email Address*"
+                    aria-required="true"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-400 hover:border-gray-300"
+                    required
+                  />
+                </div>
+                <div className="flex-1">
+                  <label htmlFor="booking-phone" className="sr-only">Phone Number</label>
+                  <motion.input
+                    id="booking-phone"
+                    type="tel"
+                    name="phone"
+                    autoComplete="tel"
+                    placeholder="Phone Number*"
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit phone number"
+                    aria-required="true"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base placeholder-gray-400 hover:border-gray-300"
+                    required
+                    maxLength={10}
+                  />
+                </div>
+                <div className="flex-1">
+                  <label htmlFor="booking-date" className="sr-only">Preferred Date</label>
+                  <motion.input
+                    id="booking-date"
+                    type="date"
+                    name="date"
+                    autoComplete="off"
+                    min={today}
+                    placeholder="Preferred Date*"
+                    aria-required="true"
+                    style={{
+                      colorScheme: 'light'
+                    }}
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-xs sm:text-sm md:text-base hover:border-gray-300 cursor-pointer
                   [&::-webkit-datetime-edit-text]:text-gray-400
                   [&::-webkit-datetime-edit-month-field]:text-gray-400
                   [&::-webkit-datetime-edit-day-field]:text-gray-400
@@ -148,16 +171,17 @@ const BookVisit = () => {
                   [&.has-value::-webkit-datetime-edit-month-field]:text-gray-900
                   [&.has-value::-webkit-datetime-edit-day-field]:text-gray-900
                   [&.has-value::-webkit-datetime-edit-year-field]:text-gray-900"
-                  onInput={(e) => {
-                    const input = e.currentTarget;
-                    if (input.value) {
-                      input.classList.add('has-value');
-                    } else {
-                      input.classList.remove('has-value');
-                    }
-                  }}
-                  required
-                />
+                    onInput={(e) => {
+                      const input = e.currentTarget;
+                      if (input.value) {
+                        input.classList.add('has-value');
+                      } else {
+                        input.classList.remove('has-value');
+                      }
+                    }}
+                    required
+                  />
+                </div>
                 <motion.button
                   type="submit"
                   disabled={isLoading}
@@ -187,6 +211,8 @@ const BookVisit = () => {
               </form>
               {toast && (
                 <motion.div
+                  role="status"
+                  aria-live="polite"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className={`mt-4 sm:mt-5 rounded-xl border-2 px-4 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm font-semibold transition-all shadow-md ${toastVariant}`}

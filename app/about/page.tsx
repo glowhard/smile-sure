@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function About() {
     return (
-        <>
+        <main id="main-content">
             <div className='bg-white'>
             <PageHeader
                     label="About Us"
@@ -33,7 +33,7 @@ export default function About() {
                 <Testimonials />
                 <BookVisit />
             </div>
-        </>
+        </main>
     );
 }
 

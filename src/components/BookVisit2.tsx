@@ -155,6 +155,7 @@ const BookVisit2 = () => {
 
             <motion.a
               href="tel:9220688266"
+              aria-label="Call SmileSure Dental Care at 9220688266"
               className="inline-flex items-center justify-center rounded-full bg-primary w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] md:w-[62px] md:h-[62px] mb-4 sm:mb-6 cursor-pointer hover:bg-primary/90 transition-colors"
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               whileInView={{

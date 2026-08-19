@@ -136,6 +136,9 @@ const Navbar: React.FC = () => {
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav"
               className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled || isMenuOpen ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
                 }`}
             >
@@ -151,6 +154,7 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-nav"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}

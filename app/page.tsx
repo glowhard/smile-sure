@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
+    <main id="main-content">
       <div className='bg-white'>
         <Hero />
         <HeroBottom />
@@ -25,6 +25,6 @@ export default function Home() {
         <Testimonials />
         <BookVisit2 />
       </div>
-    </>
+    </main>
   );
 }
