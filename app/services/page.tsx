@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import OurServices from '@/src/components/OurServices';
 import BookVisit2 from '@/src/components/BookVisit2';
 import PageHeader from '@/src/components/PageHeader';
+
+export const metadata: Metadata = {
+  title: "Dental Services in Sector 120, Noida | SmileSure Dental Care",
+  description:
+    "Braces, root canal, crowns & bridges, scaling, tooth-coloured fillings, dentures, kids dental care & extractions at SmileSure Dental Care, Noida.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Dental Services - SmileSure Dental Care, Noida",
+    description:
+      "Complete dental services: orthodontics, RCT, crowns, scaling, fillings, dentures, child care.",
+    url: "/services",
+  },
+};
 
 export default function Services() {
   return (

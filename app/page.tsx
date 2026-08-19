@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AboutClinic from '@/src/components/AboutClinic';
 import BookVisit from '@/src/components/BookVisit';
 import BookVisit2 from '@/src/components/BookVisit2';
@@ -6,6 +7,10 @@ import HeroBottom from '@/src/components/heroBottom';
 import OurServices from '@/src/components/OurServices';
 import Testimonials from '@/src/components/Testimonials';
 import WhiteSolution from '@/src/components/WhiteSolution';
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
