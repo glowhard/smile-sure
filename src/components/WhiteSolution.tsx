@@ -91,7 +91,7 @@ const WhiteSolution = () => (
           </motion.p>
 
           <motion.div
-            className="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl md:rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group px-4"
+            className="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl md:rounded-[48px] overflow-hidden shadow-[0_64px_128px_-32px_rgba(0,0,0,0.1)] group"
             whileHover={{ y: -8, scale: 1.02 }}
             transition={{ duration: 0.4 }}
           >
