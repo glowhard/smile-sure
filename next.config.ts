@@ -3,7 +3,7 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   turbopack: {
-    root: path.resolve(__dirname, "../../../"),
+    root: path.join(__dirname),
   },
   images: {
     qualities: [75, 85, 95, 100],
