@@ -44,7 +44,7 @@ const AboutClinic = () => {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 tracking-tighter leading-[1.1] sm:leading-tight"
             variants={itemVariants}
           >
-            SmileSure Dental Care brings expert orthodontic treatment to the heart of Noida.
+            SmileSure Dental Care brings expert orthodontic treatment to the heart of Noida
           </motion.h2>
 
           {/* Subtext */}
@@ -130,8 +130,8 @@ const AboutClinic = () => {
             transition={{ duration: 0.4 }}
           >
             <video
-              src="https://framerusercontent.com/assets/QIxj4M3Ku5fa6SWTZWqzNoDt1A.mp4"
-              poster="/images/about-video-poster.jpg"
+              src="/videos/about-clinic.mp4"
+              poster="/images/about-video-poster.webp"
               autoPlay
               loop
               muted

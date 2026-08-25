@@ -7,12 +7,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 85, 95, 100],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "framerusercontent.com",
-      },
-    ],
+    remotePatterns: [],
   },
   async headers() {
     return [

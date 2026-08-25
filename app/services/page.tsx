@@ -24,7 +24,7 @@ export default function Services() {
           label="Our Services"
           title="Comprehensive Dental Care"
           description="We offer a wide range of dental services to meet all your oral health needs, from routine check-ups to advanced treatments."
-          backgroundImage='/assets/header1.png'
+          backgroundImage='/assets/header1.webp'
         />
         <OurServices />
         <BookVisit2 />

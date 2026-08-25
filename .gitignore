@@ -52,5 +52,8 @@ next-env.d.ts
 # local docs (audits, notes)
 .local-docs/
 
+# original uncompressed assets
+.originals/
+
 # plans and documentation
 docs/

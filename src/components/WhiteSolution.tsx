@@ -9,12 +9,12 @@ import AppButton from './AppButton';
 import { fadeUpVariant } from '@/src/constants/animations';
 
 const FIRST_IMAGE = {
-  imageUrl: '/images/teeth-white.jpg',
+  imageUrl: '/images/teeth-white.webp',
   label: 'After',
 };
 
 const SECOND_IMAGE = {
-  imageUrl: '/images/teeth-dark.png',
+  imageUrl: '/images/teeth-dark.webp',
   label: 'Before',
 };
 

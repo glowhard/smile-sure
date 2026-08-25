@@ -75,7 +75,7 @@ body {
 
 /* Book visit background: allow parallax only on larger screens to avoid mobile jank */
 .bg-book-visit {
-  background-image: url('/assets/header1.png');
+  background-image: url('/assets/header1.webp');
   background-size: cover;
   background-position: center;
   background-attachment: scroll;

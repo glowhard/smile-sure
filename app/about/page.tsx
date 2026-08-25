@@ -26,7 +26,7 @@ export default function About() {
                     label="About Us"
                     title="Your Trusted Dental Care Partner"
                     description="Discover our commitment to excellence, state-of-the-art facilities, and compassionate approach to dental care."
-                    backgroundImage='/assets/header1.png'
+                    backgroundImage='/assets/header1.webp'
                 />
                 <WhyChooseUs />
                 <ClinicGallery />

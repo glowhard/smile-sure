@@ -21,7 +21,7 @@ const HeroBottom = () => {
   const title = 'Our Services';
   const copy =
     'From orthodontics to general dentistry, we offer comprehensive treatments designed to give you a healthy, confident smile.';
-  const img = '/images/hero-services.png';
+  const img = '/images/hero-services.webp';
 
   return (
     <motion.section
@@ -63,11 +63,11 @@ const HeroBottom = () => {
                 {/* Avatars - Happy Patients */}
                 <div className="hidden sm:flex -space-x-4">
                   {[
-                    'person-1.png',
-                    'person-2.png',
-                    'person-3.png',
-                    'person-4.png',
-                    'person-5.png',
+                    'person-1.webp',
+                    'person-2.webp',
+                    'person-3.webp',
+                    'person-4.webp',
+                    'person-5.webp',
                   ].map((filename, i) => (
                     <div
                       key={i}

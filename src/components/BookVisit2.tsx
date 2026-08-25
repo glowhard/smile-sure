@@ -97,7 +97,7 @@ const BookVisit2 = () => {
               {/* Image container with enhanced border */}
               <div className="relative p-2 bg-gradient-to-br from-primary/20 via-secondary/10 to-white rounded-3xl sm:rounded-[2rem] shadow-2xl">
                 <Image
-                  src="/assets/doctor.jpeg"
+                  src="/assets/doctor.webp"
                   alt="Dr. Shrestha Singh - Professional Orthodontist"
                   width={800}
                   height={1000}

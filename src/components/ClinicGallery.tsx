@@ -7,37 +7,37 @@ import { fadeUpVariant } from '@/src/constants/animations';
 
 const galleryImages = [
   {
-    src: '/assets/waiting-area.jpeg',
+    src: '/assets/waiting-area.webp',
     alt: 'SmileSure Waiting Area - Sector 120, Noida',
     title: 'Welcoming Waiting Area',
     description: 'Our spacious, air-conditioned waiting area in Sector 120 offers a relaxing atmosphere with comfortable seating while you wait.'
   },
   {
-    src: '/assets/cabin1.jpeg',
+    src: '/assets/cabin1.webp',
     alt: 'SmileSure Treatment Cabin',
     title: 'Private Treatment Cabin',
     description: 'Our modern treatment cabins are equipped with digital X-ray systems and advanced dental units for comprehensive care.'
   },
   {
-    src: '/assets/chair1.jpeg',
+    src: '/assets/chair1.webp',
     alt: 'Premium Dental Chair at SmileSure',
     title: 'Comfortable Treatment Chairs',
     description: 'Ergonomic dental chairs with LED lighting and multimedia displays ensure a comfortable, anxiety-free experience during procedures.'
   },
   {
-    src: '/assets/chair2.jpeg',
+    src: '/assets/chair2.webp',
     alt: 'Advanced Dental Equipment',
     title: 'Advanced Technology',
     description: 'Cutting-edge equipment including rotary endodontic systems, ultrasonic scalers, and digital imaging for precision treatment.'
   },
   {
-    src: '/assets/chair3.jpeg',
+    src: '/assets/chair3.webp',
     alt: 'SmileSure Treatment Room',
     title: 'Sterilized Treatment Rooms',
     description: 'Spacious, well-ventilated rooms with strict sterilization protocols and proper infection control measures for your safety.'
   },
   {
-    src: '/assets/chair4.jpeg',
+    src: '/assets/chair4.webp',
     alt: 'SmileSure Orthodontic Setup',
     title: 'Orthodontic Excellence',
     description: 'Specialized setup for orthodontic treatments including braces and aligners, led by Dr. Shrestha Singh (MDS Orthodontist).'

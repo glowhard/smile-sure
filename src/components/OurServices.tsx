@@ -170,7 +170,7 @@ const OurServices = () => {
             viewport={{ once: true, amount: 0.4 }}
           >
             <motion.img
-              src="/assets/teeth-character.png"
+              src="/assets/teeth-character.webp"
               alt="Cute tooth character mascot"
               className="w-full h-auto object-contain scale-[1.5]"
               animate={{

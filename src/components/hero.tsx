@@ -22,6 +22,7 @@ const Hero = () => {
           loop
           muted
           playsInline
+          poster="/images/hero-poster.webp"
           src="/videos/hero-vid.mp4"
         />
         {/* Gradient overlay for better readability */}

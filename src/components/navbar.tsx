@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group cursor-pointer">
             <Image
-              src={!isScrolled && !isMenuOpen ? '/mainLogo-light.png' : '/mainLogo-dark.png'}
+              src={!isScrolled && !isMenuOpen ? '/mainLogo-light.webp' : '/mainLogo-dark.webp'}
               alt="SmileSure Dental Care Logo"
               width={100}
               height={100}
