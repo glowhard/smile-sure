@@ -48,7 +48,28 @@ export async function POST(req: Request) {
         }
 
         const body = await req.json();
-        const { email, name, phone, date } = body ?? {};
+        const { email, name, phone, date, turnstileToken } = body ?? {};
+
+        if (process.env.TURNSTILE_SECRET_KEY && turnstileToken) {
+            const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    secret: process.env.TURNSTILE_SECRET_KEY,
+                    response: turnstileToken,
+                    remoteip: ip,
+                }),
+            });
+
+            const verification = await verifyRes.json();
+
+            if (!verification.success) {
+                return NextResponse.json(
+                    { error: "Bot verification failed. Please try again." },
+                    { status: 403 }
+                );
+            }
+        }
 
         if (!email || !name || !phone || !date) {
             return NextResponse.json(
@@ -72,78 +93,81 @@ export async function POST(req: Request) {
         const safeEmail = escapeHtml(email.slice(0, 200));
         const safeName = escapeHtml(name.slice(0, 200));
         const safePhone = escapeHtml(phone.slice(0, 40));
-        const safeDate = escapeHtml(date.slice(0, 40));
+
+        const formattedDate = new Date(date + "T00:00:00").toLocaleDateString("en-IN", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        });
 
         await sendEmail({
             to: RECIPIENT,
-            subject: "Smile Sure - New Contact Form",
+            subject: `New Appointment - ${safeName}`,
             html: `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Smile Sure - New Contact Message</title>
+        <title>New Appointment</title>
       </head>
-      <body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,Helvetica,sans-serif;">
+      <body style="margin:0;padding:0;background:#f8f6f4;font-family:Arial,Helvetica,sans-serif;">
         <table width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;">
           <tr>
             <td align="center">
-              <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+              <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(110,78,36,0.08);">
 
                 <!-- Header -->
                 <tr>
-                  <td style="background:#111827;padding:20px 24px;">
-                    <h2 style="margin:0;color:#ffffff;font-size:20px;">
-                      Smile Sure - New Contact Message
+                  <td style="background:#6e4e24;padding:24px 28px;">
+                    <h2 style="margin:0;color:#ffffff;font-size:20px;font-weight:600;">
+                      New Appointment Request
                     </h2>
                   </td>
                 </tr>
 
                 <!-- Body -->
                 <tr>
-                  <td style="padding:24px;">
-                    <p style="margin:0 0 12px;color:#374151;font-size:14px;">
-                      You received a new message from your website contact form from Smile Sure.
-                    </p>
-                    <table width="100%" cellpadding="0" cellspacing="0" style="margin:16px 0;border:1px solid #e5e7eb;border-radius:6px">
+                  <td style="padding:28px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e8e0d8;border-radius:8px;overflow:hidden;">
                       <tr>
-                        <td style="padding:12px;background:#f9fafb;">
-                          <p style="margin:0 0 6px;font-size:13px;color:#6b7280;">
-                            <strong>Email</strong>
+                        <td style="padding:14px 16px;border-bottom:1px solid #f1ebe6;">
+                          <p style="margin:0 0 4px;font-size:11px;color:#9a8576;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">
+                            Patient Name
                           </p>
-                          <p style="margin:0;font-size:14px;color:#111827;">
-                            ${safeEmail}
-                          </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:12px;background:#f9fafb;">
-                          <p style="margin:0 0 6px;font-size:13px;color:#6b7280;">
-                            <strong>Name</strong>
-                          </p>
-                          <p style="margin:0;font-size:14px;color:#111827;">
+                          <p style="margin:0;font-size:15px;color:#1f2937;font-weight:500;">
                             ${safeName}
                           </p>
                         </td>
                       </tr>
                       <tr>
-                        <td style="padding:12px;background:#f9fafb;">
-                          <p style="margin:0 0 6px;font-size:13px;color:#6b7280;">
-                            <strong>Phone</strong>
+                        <td style="padding:14px 16px;border-bottom:1px solid #f1ebe6;">
+                          <p style="margin:0 0 4px;font-size:11px;color:#9a8576;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">
+                            Phone
                           </p>
-                          <p style="margin:0;font-size:14px;color:#111827;">
-                            ${safePhone}
+                          <p style="margin:0;font-size:15px;color:#1f2937;">
+                            <a href="tel:${safePhone}" style="color:#6e4e24;text-decoration:none;font-weight:500;">${safePhone}</a>
                           </p>
                         </td>
                       </tr>
                       <tr>
-                        <td style="padding:12px;background:#f9fafb;">
-                          <p style="margin:0 0 6px;font-size:13px;color:#6b7280;">
-                            <strong>Preferred Date</strong>
+                        <td style="padding:14px 16px;border-bottom:1px solid #f1ebe6;">
+                          <p style="margin:0 0 4px;font-size:11px;color:#9a8576;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">
+                            Email
                           </p>
-                          <p style="margin:0;font-size:14px;color:#111827;">
-                            ${safeDate}
+                          <p style="margin:0;font-size:15px;color:#1f2937;">
+                            <a href="mailto:${safeEmail}" style="color:#6e4e24;text-decoration:none;">${safeEmail}</a>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:14px 16px;background:#faf8f6;">
+                          <p style="margin:0 0 4px;font-size:11px;color:#9a8576;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">
+                            Preferred Date
+                          </p>
+                          <p style="margin:0;font-size:15px;color:#6e4e24;font-weight:600;">
+                            ${formattedDate}
                           </p>
                         </td>
                       </tr>
@@ -153,9 +177,9 @@ export async function POST(req: Request) {
 
                 <!-- Footer -->
                 <tr>
-                  <td style="padding:16px 24px;background:#f9fafb;text-align:center;">
-                    <p style="margin:0;font-size:12px;color:#6b7280;">
-                      This email was sent from your website contact form from Smile Sure.
+                  <td style="padding:16px 28px;background:#faf8f6;border-top:1px solid #f1ebe6;">
+                    <p style="margin:0;font-size:12px;color:#9a8576;text-align:center;">
+                      SmileSure Dental Care - Sector 120, Noida
                     </p>
                   </td>
                 </tr>

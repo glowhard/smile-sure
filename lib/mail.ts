@@ -1,17 +1,8 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-const host = process.env.EMAIL_HOST;
-const user = process.env.EMAIL_USER;
-const pass = process.env.EMAIL_PASS;
-const port = Number(process.env.EMAIL_PORT || 587);
-const secure = process.env.EMAIL_SECURE === "true";
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure,
-    auth: user && pass ? { user, pass } : undefined,
-});
+const FROM_ADDRESS = process.env.RESEND_FROM_EMAIL || "noreply@smilesure.in";
 
 export const sendEmail = async ({
     to,
@@ -22,14 +13,12 @@ export const sendEmail = async ({
     subject: string;
     html: string;
 }) => {
-    if (!host || !user || !pass) {
-        throw new Error(
-            "Email transport not configured: missing EMAIL_HOST, EMAIL_USER, or EMAIL_PASS"
-        );
+    if (!process.env.RESEND_API_KEY) {
+        throw new Error("Email transport not configured: missing RESEND_API_KEY");
     }
 
-    await transporter.sendMail({
-        from: `"Smile Sure Dental Care" <${user}>`,
+    await resend.emails.send({
+        from: `SmileSure Dental Care <${FROM_ADDRESS}>`,
         to,
         subject,
         html,

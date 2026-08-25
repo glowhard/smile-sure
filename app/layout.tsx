@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
+import Script from "next/script";
 import Navbar from "@/src/components/navbar";
 import Footer from "@/src/components/footer";
+import WhatsAppFAB from "@/src/components/WhatsAppFAB";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -12,7 +14,7 @@ const roboto = Roboto({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#6b4a2f",
+  themeColor: "#6e4e24",
 };
 
 export const metadata: Metadata = {
@@ -62,12 +64,12 @@ export const metadata: Metadata = {
       "Braces, RCT, crowns & bridges, fillings, dentures, kids dental care. Free digital X-ray + 10% off. 9220688266.",
     images: ["https://smilesure.in/images/smilesure-og.jpg"],
   },
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/mainLogo.jpeg", type: "image/jpeg" },
     ],
-    apple: [{ url: "/mainLogo.jpeg" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -143,6 +145,12 @@ export default function RootLayout({
       honorificSuffix: "BDS, MDS",
     },
     medicalSpecialty: "Orthodontics",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      bestRating: "5",
+      ratingCount: "120",
+    },
   };
 
   return (
@@ -157,10 +165,23 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <WhatsAppFAB />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1ER5YD0LSK"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1ER5YD0LSK');
+          `}
+        </Script>
       </body>
     </html>
   );

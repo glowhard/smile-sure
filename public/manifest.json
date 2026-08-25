@@ -1,0 +1,31 @@
+{
+  "name": "SmileSure Dental Care",
+  "short_name": "SmileSure",
+  "description": "Expert dental care in Noida Sector 120 by Dr. Shrestha Singh",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#6e4e24",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

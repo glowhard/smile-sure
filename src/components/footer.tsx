@@ -6,6 +6,28 @@ import { motion } from "framer-motion";
 import { Instagram, Mail, Phone, MapPin, Clock, Calendar, Award, Shield, Star, Facebook } from "lucide-react";
 import { usePathname } from "next/navigation";
 
+function getClinicStatus(): { isOpen: boolean; text: string } {
+  const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+  const day = now.getDay();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const time = hours * 60 + minutes;
+
+  if (day === 0) return { isOpen: false, text: "Closed - Opens Mon 10:30am" };
+
+  const morningOpen = 10 * 60 + 30;
+  const morningClose = 13 * 60 + 30;
+  const eveningOpen = 15 * 60 + 30;
+  const eveningClose = 20 * 60;
+
+  if (time >= morningOpen && time < morningClose) return { isOpen: true, text: "Open Now" };
+  if (time >= eveningOpen && time < eveningClose) return { isOpen: true, text: "Open Now" };
+  if (time < morningOpen) return { isOpen: false, text: "Closed - Opens at 10:30am" };
+  if (time >= morningClose && time < eveningOpen) return { isOpen: false, text: "Closed - Opens at 3:30pm" };
+
+  return { isOpen: false, text: "Closed - Opens at 10:30am" };
+}
+
 const Footer = () => {
   const pathname = usePathname();
 
@@ -49,9 +71,10 @@ const Footer = () => {
     { name: "Mail", href: "mailto:care@smilesure.in", icon: <Mail size={18} /> },
   ];
 
-  const isPrivacyPage = pathname === '/privacy';
+  const knownPaths = ['/', '/about', '/services', '/privacy'];
+  const isKnownPage = knownPaths.includes(pathname);
 
-  if (isPrivacyPage) {
+  if (!isKnownPage) {
     return null;
   }
 
@@ -87,20 +110,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-16">
 
           {/* Column 1: About & Logo */}
-          <div className="flex flex-col items-start space-y-6">
+          <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left">
             <Image
               src="/mainLogo.jpeg"
               alt="SmileSure Dental Care Logo"
               width={144}
               height={144}
-              className="w-32 sm:w-36 rounded-xl shadow-lg ring-2 ring-[#c8a95d]/30"
+              className="w-24 sm:w-32 md:w-36 rounded-xl shadow-lg ring-2 ring-[#c8a95d]/30"
             />
             <p className="text-[#d6c9a3]/80 leading-relaxed text-sm">
-              Redefining trust and care — where expertise meets excellence every single day.
+              Redefining trust and care - where expertise meets excellence every single day.
             </p>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center md:justify-start gap-3">
               <div className="flex items-center gap-2 bg-[#1a1209] px-3 py-2 rounded-lg border border-[#c8a95d]/20">
                 <Shield size={16} className="text-[#c8a95d]" />
                 <span className="text-xs font-semibold text-[#e7d9b0]">Licensed</span>
@@ -114,7 +137,7 @@ const Footer = () => {
             {/* Social Media */}
             <div className="space-y-3">
               <p className="text-[#f0e6c8] font-semibold text-sm uppercase tracking-wider">Connect With Us</p>
-              <div className="flex gap-3">
+              <div className="flex justify-center md:justify-start gap-3">
                 {socials.map((social, i) => (
                   <motion.a
                     key={i}
@@ -135,7 +158,7 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-center md:text-left">
             <h3 className="text-[#f0e6c8] font-bold text-lg mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-[3px] after:bg-[#c8a95d]">
               Quick Links
             </h3>
@@ -144,7 +167,7 @@ const Footer = () => {
                 <li key={i}>
                   <Link
                     href={link.href}
-                    className="text-[#d6c9a3]/80 hover:text-[#c8a95d] hover:translate-x-1 transition-all duration-200 text-sm flex items-center gap-2 group"
+                    className="text-[#d6c9a3]/80 hover:text-[#c8a95d] hover:translate-x-1 transition-all duration-200 text-sm flex items-center justify-center md:justify-start gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#c8a95d]/50 group-hover:bg-[#c8a95d] transition-colors"></span>
                     {link.label}
@@ -161,7 +184,7 @@ const Footer = () => {
                     <Link
                       href={link.href}
                       target={link.target}
-                      className="text-[#d6c9a3]/80 hover:text-[#c8a95d] hover:translate-x-1 transition-all duration-200 text-sm flex items-center gap-2 group"
+                      className="text-[#d6c9a3]/80 hover:text-[#c8a95d] hover:translate-x-1 transition-all duration-200 text-sm flex items-center justify-center md:justify-start gap-2 group"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#c8a95d]/50 group-hover:bg-[#c8a95d] transition-colors"></span>
                       {link.label}
@@ -173,7 +196,7 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Services */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-center md:text-left">
             <h3 className="text-[#f0e6c8] font-bold text-lg mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-[3px] after:bg-[#c8a95d]">
               Our Services
             </h3>
@@ -182,7 +205,7 @@ const Footer = () => {
                 <li key={i}>
                   <Link
                     href={link.href}
-                    className="text-[#d6c9a3]/80 hover:text-[#c8a95d] hover:translate-x-1 transition-all duration-200 text-sm flex items-center gap-2 group"
+                    className="text-[#d6c9a3]/80 hover:text-[#c8a95d] hover:translate-x-1 transition-all duration-200 text-sm flex items-center justify-center md:justify-start gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#c8a95d]/50 group-hover:bg-[#c8a95d] transition-colors"></span>
                     {link.label}
@@ -193,17 +216,32 @@ const Footer = () => {
           </div>
 
           {/* Column 4: Contact Information */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-center md:text-left">
             <h3 className="text-[#f0e6c8] font-bold text-lg mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-[3px] after:bg-[#c8a95d]">
               Contact Us
             </h3>
 
             {/* Consultation Timings */}
             <div className="space-y-2">
-              <div className="flex items-start gap-3">
-                <Clock size={18} className="text-[#c8a95d] flex-shrink-0 mt-0.5" />
+              <div className="flex flex-col items-center md:flex-row md:items-start gap-1 md:gap-3">
+                <Clock size={18} className="text-[#c8a95d] flex-shrink-0 hidden md:block mt-0.5" />
                 <div>
                   <p className="text-[#f0e6c8] font-semibold text-sm mb-1">Consultation Hours</p>
+                  {(() => {
+                    const status = getClinicStatus();
+                    return (
+                      <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full mb-2 ${
+                        status.isOpen
+                          ? "bg-green-900/40 text-green-400"
+                          : "bg-red-900/30 text-red-400/80"
+                      }`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${
+                          status.isOpen ? "bg-green-400 animate-pulse" : "bg-red-400/80"
+                        }`} />
+                        {status.text}
+                      </span>
+                    );
+                  })()}
                   <p className="text-[#d6c9a3]/80 text-sm leading-relaxed">
                     Mon - Sat<br />
                     10:30am - 1:30pm<br />
@@ -216,8 +254,8 @@ const Footer = () => {
 
             {/* Address */}
             <div className="space-y-2">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#c8a95d] flex-shrink-0 mt-0.5" />
+              <div className="flex flex-col items-center md:flex-row md:items-start gap-1 md:gap-3">
+                <MapPin size={18} className="text-[#c8a95d] flex-shrink-0 hidden md:block mt-0.5" />
                 <div>
                   <p className="text-[#f0e6c8] font-semibold text-sm mb-1">Location</p>
                   <p className="text-[#d6c9a3]/80 text-sm leading-relaxed">
@@ -240,7 +278,7 @@ const Footer = () => {
 
             {/* Phone & Email */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center md:justify-start gap-3">
                 <Phone size={18} className="text-[#c8a95d] flex-shrink-0" />
                 <a
                   href="tel:9220688266"
@@ -249,7 +287,7 @@ const Footer = () => {
                   +91 9220688266
                 </a>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center md:justify-start gap-3">
                 <Mail size={18} className="text-[#c8a95d] flex-shrink-0" />
                 <a
                   href="mailto:care@smilesure.in"
@@ -276,7 +314,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-[#c8a95d]/20">
-        <div className="container mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="container mx-auto px-4 sm:px-6 py-6 pb-20 lg:pb-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs sm:text-sm text-[#d6c9a3]/60 text-center sm:text-left">
             © {new Date().getFullYear()} SmileSure Dental Care. All rights reserved.
           </p>

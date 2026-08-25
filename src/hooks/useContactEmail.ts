@@ -11,8 +11,8 @@ export function useContactEmail() {
   const clearToast = useCallback(() => setToast(null), []);
 
   const send = useCallback(
-    async (payload: { email: string; name: string; phone: string; date: string }) => {
-      if (isLoading) return;
+    async (payload: { email: string; name: string; phone: string; date: string; turnstileToken?: string }): Promise<boolean> => {
+      if (isLoading) return false;
 
       setIsLoading(true);
       try {
@@ -27,11 +27,13 @@ export function useContactEmail() {
         }
 
         setToast({ type: "success", message: "Thank you! We will connect with you within 24 hours." });
+        return true;
       } catch {
         setToast({
           type: "error",
           message: "Unable to send message. Please try again.",
         });
+        return false;
       } finally {
         setIsLoading(false);
         setTimeout(clearToast, TOAST_DURATION_MS);

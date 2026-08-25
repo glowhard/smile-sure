@@ -7,7 +7,7 @@ import { containerVariants, fadeUpVariant } from '@/src/constants/animations';
 
 const Hero = () => {
   return (
-    <div className="relative flex items-center justify-center min-h-[600px] md:min-h-[700px] lg:min-h-[85vh] px-6 md:px-12 lg:px-16 overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-[600px] md:min-h-[700px] lg:min-h-[85vh] px-6 md:px-12 lg:px-16 pt-28 sm:pt-28 md:pt-32 lg:pt-0 overflow-hidden">
 
       {/* Video Background with Overlay */}
       <motion.div
