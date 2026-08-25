@@ -91,7 +91,7 @@ const AboutClinic = () => {
                   Trusted by 2,500+ Patients in Noida
                 </h3>
                 <p className="text-slate-500 font-medium leading-relaxed text-xs sm:text-sm md:text-base xl:text-lg">
-                  With a 4.8/5 Google rating and over a decade of experience serving families in Noida, we&apos;ve built our reputation on delivering consistent results, transparent communication, and compassionate care at every visit.
+                  With a 4.8/5 Google rating and over 7 years of experience serving families in Noida, we&apos;ve built our reputation on delivering consistent results, transparent communication, and compassionate care at every visit.
                 </p>
               </div>
             </motion.div>

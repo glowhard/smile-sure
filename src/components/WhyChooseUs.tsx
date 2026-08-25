@@ -9,7 +9,7 @@ const reasons = [
   {
     icon: Award,
     title: '7+ Years Expert Care',
-    description: 'Led by Dr. Shrestha Singh (BDS, MDS - Orthodontist), a qualified specialist with over a decade of experience delivering exceptional dental care in Noida.'
+    description: 'Led by Dr. Shrestha Singh (BDS, MDS - Orthodontist), a qualified specialist with over 7 years of experience delivering exceptional dental care in Noida.'
   },
   {
     icon: Sparkles,

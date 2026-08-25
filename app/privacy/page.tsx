@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Privacy Policy",
@@ -11,13 +12,18 @@ export default function PrivacyPolicyPage() {
     return (
         <main className="min-h-screen bg-gray-50 py-10 px-4">
             <div className="mx-auto max-w-4xl rounded-lg bg-white p-8 shadow-sm">
+                <Link href="/" className="inline-flex items-center gap-2 text-sm text-[#6e4e24] font-semibold hover:underline mb-6">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                    Back to Home
+                </Link>
+
                 <h1 className="text-3xl font-semibold text-gray-900">
                     Privacy Policy
                 </h1>
 
                 <section className="mt-6 space-y-4 text-gray-700 text-sm leading-7">
                     <p>
-                        At <span className="font-semibold">Smile Sure</span>, we respect your
+                        At <span className="font-semibold">SmileSure</span>, we respect your
                         privacy and are committed to protecting the personal information you
                         share with us. This Privacy Policy explains how we collect, use, and
                         safeguard your information when you visit our website or use our
@@ -70,7 +76,7 @@ export default function PrivacyPolicyPage() {
 
                 <Section title="5. Cookies">
                     <p>
-                        Smile Sure may use cookies or similar technologies to improve website
+                        SmileSure may use cookies or similar technologies to improve website
                         functionality and user experience. You can manage cookies through
                         your browser settings.
                     </p>
@@ -94,7 +100,7 @@ export default function PrivacyPolicyPage() {
 
                 <Section title="8. Children’s Privacy">
                     <p>
-                        Smile Sure does not knowingly collect personal information from
+                        SmileSure does not knowingly collect personal information from
                         children under the age of 13 without parental consent.
                     </p>
                 </Section>
@@ -109,12 +115,18 @@ export default function PrivacyPolicyPage() {
                 <Section title="10. Contact Us">
                     <p>
                         If you have any questions about this Privacy Policy or how we handle
-                        your data, please contact us through our website.
+                        your data, please contact us:
                     </p>
+                    <ul className="list-none space-y-1 mt-2">
+                        <li><span className="font-semibold">SmileSure Dental Care</span></li>
+                        <li>Shop No. 1, Market Complex, Amrapali Zodiac, Sec-120, Noida - 201301</li>
+                        <li>Email: <a href="mailto:care@smilesure.in" className="text-[#6e4e24] hover:underline">care@smilesure.in</a></li>
+                        <li>Phone: <a href="tel:9220688266" className="text-[#6e4e24] hover:underline">+91 9220688266</a></li>
+                    </ul>
                 </Section>
 
                 <p className="mt-10 text-center text-xs text-gray-500">
-                    © Smile Sure Dental Care. All rights reserved.
+                    © SmileSure Dental Care. All rights reserved.
                 </p>
             </div>
         </main>
