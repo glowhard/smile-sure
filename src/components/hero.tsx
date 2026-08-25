@@ -115,7 +115,7 @@ const Hero = () => {
               <div className="h-10 w-px bg-white/20 hidden sm:block"></div>
 
               <div className="text-white">
-                <p className="text-lg md:text-xl font-bold leading-none">10+ Years</p>
+                <p className="text-lg md:text-xl font-bold leading-none">7+ Years</p>
                 <p className="text-xs md:text-sm text-white/70">Experience</p>
               </div>
             </motion.div>

@@ -144,7 +144,7 @@ const BookVisit2 = () => {
                   transition: { delay: 0.7, duration: 0.5 }
                 }}
               >
-                <p className="text-xs sm:text-sm font-bold">10+ Years</p>
+                <p className="text-xs sm:text-sm font-bold">7+ Years</p>
                 <p className="text-[10px] sm:text-xs opacity-90">Experience</p>
               </motion.div>
             </motion.div>

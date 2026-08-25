@@ -110,7 +110,7 @@ const HeroBottom = () => {
             {/* RIGHT – Empty spacer (keeps alignment clean like image) */}
             <div className="hidden lg:block lg:col-span-2">
               <p className="text-base leading-7 text-slate-600 max-w-md">
-                With over 10 years of experience and 2,500+ happy patients in Noida, Dr. Shrestha Singh and our expert team provide personalized care using state-of-the-art technology for your perfect smile.
+                With over 7 years of experience and 2,500+ happy patients in Noida, Dr. Shrestha Singh and our expert team provide personalized care using state-of-the-art technology for your perfect smile.
               </p>
             </div>
           </div>

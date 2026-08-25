@@ -136,7 +136,7 @@ const Testimonials = () => {
               <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Happy Patients</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">10+</p>
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">7+</p>
               <p className="text-[10px] sm:text-xs lg:text-sm font-black tracking-wider sm:tracking-widest uppercase text-slate-400 mt-1 sm:mt-2">Years Experience</p>
             </div>
           </div>

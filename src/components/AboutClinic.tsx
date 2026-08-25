@@ -52,7 +52,7 @@ const AboutClinic = () => {
             className="text-sm sm:text-base md:text-lg xl:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl"
             variants={itemVariants}
           >
-            Located in Sector 120, our clinic is led by Dr. Shrestha Singh (BDS, MDS - Orthodontist) with over 10 years of experience. We combine advanced technology with personalized care to deliver exceptional results for every patient.
+            Located in Sector 120, our clinic is led by Dr. Shrestha Singh (BDS, MDS - Orthodontist) with over 7 years of experience. We combine advanced technology with personalized care to deliver exceptional results for every patient.
           </motion.p>
 
           {/* Features */}

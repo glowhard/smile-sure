@@ -8,7 +8,7 @@ import { fadeUpVariant } from '@/src/constants/animations';
 const reasons = [
   {
     icon: Award,
-    title: '10+ Years Expert Care',
+    title: '7+ Years Expert Care',
     description: 'Led by Dr. Shrestha Singh (BDS, MDS - Orthodontist), a qualified specialist with over a decade of experience delivering exceptional dental care in Noida.'
   },
   {
