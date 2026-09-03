@@ -204,7 +204,7 @@ const BookVisit = () => {
                   {/* Divider */}
                   <div className="flex items-center gap-4 mb-6 sm:mb-8">
                     <div className="flex-1 h-px bg-gray-200"></div>
-                    <span className="text-xs sm:text-sm text-gray-400 font-medium">or book via email</span>
+                    <span className="text-xs sm:text-sm text-gray-400 font-medium">or fill the form below</span>
                     <div className="flex-1 h-px bg-gray-200"></div>
                   </div>
 
