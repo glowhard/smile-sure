@@ -105,23 +105,6 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          className="mt-12 sm:mt-16 md:mt-20 text-center"
-          variants={fadeUpVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <motion.div
-            className="inline-flex items-center gap-2 bg-primary/5 border border-primary/20 rounded-full px-6 py-3 text-primary"
-            variants={fadeUpVariant}
-          >
-            <Sparkles className="w-5 h-5" />
-            <span className="text-sm sm:text-base font-semibold">
-              Free Digital X-Ray + 10% Off All Treatments
-            </span>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

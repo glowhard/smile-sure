@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | SmileSure Dental Care",
   },
   description:
-    "SmileSure Dental Care in Noida (Sec-120) by Dr. Shrestha Singh, BDS, MDS Orthodontist. Braces, root canal, crowns & bridges, scaling, tooth-coloured fillings, dentures, child dental care & extractions. Free digital X-ray + 10% off on all treatment. Call 9220688266.",
+    "SmileSure Dental Care in Noida (Sec-120) by Dr. Shrestha Singh, BDS, MDS Orthodontist. Braces, root canal, crowns & bridges, scaling, tooth-coloured fillings, dentures, child dental care & extractions. Call 9220688266.",
   keywords: [
     "SmileSure Dental Care",
     "dentist in Noida",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "SmileSure Dental Care",
     title: "SmileSure Dental Care, Noida | Dr. Shrestha Singh (Orthodontist)",
     description:
-      "Orthodontics & full-service dentistry in Sec-120, Noida. Free digital X-ray + 10% off on all treatment. Call 9220688266.",
+      "Orthodontics & full-service dentistry in Sec-120, Noida. Braces, root canal, crowns & bridges, fillings, dentures & child dental care. Call 9220688266.",
     images: [
       {
         url: "https://smilesure.in/images/smilesure-og.jpg",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SmileSure Dental Care, Noida | Dr. Shrestha Singh",
     description:
-      "Braces, RCT, crowns & bridges, fillings, dentures, kids dental care. Free digital X-ray + 10% off. 9220688266.",
+      "Braces, RCT, crowns & bridges, fillings, dentures, kids dental care. Call 9220688266.",
     images: ["https://smilesure.in/images/smilesure-og.jpg"],
   },
   manifest: "/manifest.json",

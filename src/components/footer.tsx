@@ -1,9 +1,9 @@
 'use client';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Instagram, Mail, Phone, MapPin, Clock, Calendar, Award, Shield, Star, Facebook } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin, Clock, Calendar, Award, Shield, Facebook } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 function getClinicStatus(): { isOpen: boolean; text: string } {
@@ -30,6 +30,11 @@ function getClinicStatus(): { isOpen: boolean; text: string } {
 
 const Footer = () => {
   const pathname = usePathname();
+  const [clinicStatus, setClinicStatus] = useState<{ isOpen: boolean; text: string } | null>(null);
+
+  useEffect(() => {
+    setClinicStatus(getClinicStatus());
+  }, []);
 
   type FooterLink = { label: string; href: string; target?: string };
   type FooterSection = { title: string; links: FooterLink[] };
@@ -80,31 +85,6 @@ const Footer = () => {
 
   return (
     <footer className="relative w-full bg-gradient-to-b from-[#120a05] via-[#1a1008] to-[#201309] text-[#e7d9b0] overflow-hidden">
-      {/* Special Offer Banner */}
-      <div className="bg-[#c8a95d] py-4 px-4 sm:px-6">
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-[#1a1209]">
-          <div className="flex items-center gap-2">
-            <Award size={20} className="flex-shrink-0" />
-            <p className="font-bold text-sm sm:text-base">Free Digital X-Ray</p>
-          </div>
-          <div className="hidden sm:block w-px h-5 bg-[#1a1209]/30"></div>
-          <div className="flex items-center gap-2">
-            <Star size={20} className="flex-shrink-0" />
-            <p className="font-bold text-sm sm:text-base">10% Off on All Treatments</p>
-          </div>
-          <div className="hidden sm:block w-px h-5 bg-[#1a1209]/30"></div>
-          <motion.a
-            href="tel:9220688266"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#1a1209] text-[#c8a95d] px-5 py-2 rounded-full font-bold text-xs sm:text-sm hover:bg-[#0f0703] transition-all flex items-center gap-2"
-          >
-            <Calendar size={16} />
-            Book Now
-          </motion.a>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-16">
@@ -227,21 +207,18 @@ const Footer = () => {
                 <Clock size={18} className="text-[#c8a95d] flex-shrink-0 hidden md:block mt-0.5" />
                 <div>
                   <p className="text-[#f0e6c8] font-semibold text-sm mb-1">Consultation Hours</p>
-                  {(() => {
-                    const status = getClinicStatus();
-                    return (
-                      <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full mb-2 ${
-                        status.isOpen
-                          ? "bg-green-900/40 text-green-400"
-                          : "bg-red-900/30 text-red-400/80"
-                      }`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${
-                          status.isOpen ? "bg-green-400 animate-pulse" : "bg-red-400/80"
-                        }`} />
-                        {status.text}
-                      </span>
-                    );
-                  })()}
+                  {clinicStatus && (
+                    <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full mb-2 ${
+                      clinicStatus.isOpen
+                        ? "bg-green-900/40 text-green-400"
+                        : "bg-red-900/30 text-red-400/80"
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${
+                        clinicStatus.isOpen ? "bg-green-400 animate-pulse" : "bg-red-400/80"
+                      }`} />
+                      {clinicStatus.text}
+                    </span>
+                  )}
                   <p className="text-[#d6c9a3]/80 text-sm leading-relaxed">
                     Mon - Sat<br />
                     10:30am - 1:30pm<br />
@@ -316,7 +293,7 @@ const Footer = () => {
       <div className="border-t border-[#c8a95d]/20">
         <div className="container mx-auto px-4 sm:px-6 py-6 pb-20 lg:pb-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs sm:text-sm text-[#d6c9a3]/60 text-center sm:text-left">
-            © {new Date().getFullYear()} SmileSure Dental Care. All rights reserved.
+            © 2026 SmileSure Dental Care. All rights reserved.
           </p>
           <p className="text-xs text-[#d6c9a3]/50">
             Dr. Shrestha Singh, BDS, MDS (Orthodontist)
